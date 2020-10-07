@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Stefan Groha's website</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Stefan Groha, DPhil</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications">Publications</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Stefan
+                        <span class="text-primary">Groha</span>
+                    </h1>
+                    <b class="lead mb-5"> DPhil (Oxon)</b>
+                    <div class="subheading mb-5">
+                        Research Fellow at Dana Farber Cancer Institute and Harvard Medical School. <br>
+                        <a href="mailto:s.groha@gmail.com">s.groha@gmail.com</a>
+                    </div>
+                    <p class="lead mb-5">I am interested in the application of statistics and machine learning methods to problems in precision medicine, health care and genetics. I am specifically focusing on developing and applying methods in survival-, multi-state- and time series analysis on electronic health records and genetic data to understand biological mechanisms of cancer therapy and adverse events thereof as well as being able to predict these outcomes. I am leveraging my background in theoretical physics to find flexible statistical techniques that are well suited for the aforementioned problems.</p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://scholar.google.com/citations?user=CN8ZdToAAAAJ&hl=en"><i class="fa fa-graduation-cap"></i></a>
+                        <a class="social-icon" href="https://www.linkedin.com/in/stefan-groha-5599b5104/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://github.com/stefangroha"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://twitter.com/GrohaStefan"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Experience-->
+            <section class="resume-section" id="publications">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Publications</h2>
+                    <div class="col-sm-6 col-md-12">
+                        <div class="card mb-4 box-shadow">
+                              <div class="card-body">
+                                <h4>Neural ODEs for Multi-state Survival Analysis</h4>
+                                <p> Stefan Groha, Sebastian Schmon, Alexander Gusev</p>
+                                
+                                <p color="gray"><i>arxiv.org/abs/2006.04893</i></p>
+                                
+                                <div class="btn-group d-flex flex-wrap" data-toggle="buttons">
+                                    <button type="button" class="btn text-white border-right"data-toggle="collapse" style="background-color: gray;" href="#collapse_survnode" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                    <button type="button" class="btn text-white border-left border-right" style="background-color: gray;" onclick="window.location='https://arxiv.org/abs/2006.04893';">PDF (arXiv)</button>
+                                    <!--<button type="button" class="btn text-white border-left border-right" style="background-color: rgb(0, 153, 255);" onclick="window.location='download/code_pm_asymptotics.zip';">Code (zip)</button> -->
+                                    <button type="button" class="btn text-white border-left" style="background-color: gray;" data-toggle="collapse" href="#collapse_survnode_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">Bibtex</button>
+                                </div>
+                                <div class="collapse" id="collapse_survnode">
+                                  <div class="p-3 mb-2 bg-light text-dark">
+                                    Survival models are a popular tool for the analysis of time to event data with applications in medicine, engineering, economics and many more. Advances like the Cox proportional hazard model have enabled researchers to better describe hazard rates for the occurrence of single fatal events, but are limited by modeling assumptions, like proportionality of hazard rates and linear effects. Moreover, common phenomena are often better described through multiple states, for example, the progress of a disease might be modeled as healthy, sick and dead instead of healthy and dead, where the competing nature of death and disease has to be taken into account. Also, individual characteristics can vary significantly between observational units, like patients, resulting in idiosyncratic hazard rates and different disease trajectories. These considerations require flexible modeling assumptions. Current standard models, however, are often ill-suited for such an analysis. To overcome these issues, we propose the use of neural ordinary differential equations as a flexible and general method for estimating multi-state survival models by directly solving the Kolmogorov forward equations. To quantify the uncertainty in the resulting individual cause-specific hazard rates, we further introduce a variational latent variable model. We show that our model exhibits state-of-the-art performance on popular survival data sets and demonstrate its efficacy in a multi-state setting.
+                                  </div>
+                                </div>
+                                <div class="collapse" id="collapse_survnode_bibtex">
+                                  <div class="class="card-body">
+                                    <pre class="prettyprint"><code type="text" id="groha2020">@Article{Groha2020,
+          author  = {Stefan Groha, Sebastian M Schmon and Alexander Gusev},
+          title   = {Neural ODEs for Multi-state Survival Analysis},
+          journal = {https://arxiv.org/abs/2006.04893},
+          year    = {2020},
+        }
+                                    </code></pre>
+                                    <input type="button" value="Copy to clipboard" class="btn btn-sm btn-secondary" onclick="copyToClipboard('#groha2020');this.value='Copy to clipboard ✓'">
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <div class="card mb-4 box-shadow">
+                              <div class="card-body">
+                                <h4>Full counting statistics in the transverse field Ising chain</h4>
+                                <p> Stefan Groha, Fabian Essler, Pasquale Calabrese</p>
+                                <p color="gray"><i>SciPost Physics 4 (6), 2018</i></p>
+                                
+                                <div class="btn-group d-flex flex-wrap" data-toggle="buttons">
+                                    <button type="button" class="btn text-white border-right"data-toggle="collapse" style="background-color: gray;" href="#collapse_fullcountingising" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                    <button type="button" class="btn text-white border-left border-right" style="background-color: gray;" onclick="window.location='https://www.scipost.org/SciPostPhys.4.6.043/pdf';">PDF (SciPost)</button>
+                                    <!--<button type="button" class="btn text-white border-left border-right" style="background-color: rgb(0, 153, 255);" onclick="window.location='download/code_pm_asymptotics.zip';">Code (zip)</button> -->
+                                    <button type="button" class="btn text-white border-left" style="background-color: gray;" data-toggle="collapse" href="#collapse_fullcountingising_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">Bibtex</button>
+                                </div>
+                                <div class="collapse" id="collapse_fullcountingising">
+                                  <div class="p-3 mb-2 bg-light text-dark">
+                                    We consider the full probability distribution for the transverse magnetization of a finite subsystem in the transverse field Ising chain. We derive a determinant representation of the corresponding characteristic function for general Gaussian states. We consider applications to the full counting statistics in the ground state, finite temperature equilibrium states, non-equilibrium steady states and time evolution after global quantum quenches. We derive an analytical expression for the time and subsystem size dependence of the characteristic function at sufficiently late times after a quantum quench. This expression features an interesting multiple light-cone structure.
+                                  </div>
+                                </div>
+                                <div class="collapse" id="collapse_fullcountingising_bibtex">
+                                  <div class="class="card-body">
+                                    <pre class="prettyprint"><code type="text" id="groha2018full">@article{groha2018full,
+                                        title={Full counting statistics in the transverse field Ising chain},
+                                        author={Groha, Stefan and Essler, Fabian and Calabrese, Pasquale},
+                                        journal={SciPost Physics},
+                                        volume={4},
+                                        number={6},
+                                        year={2018},
+                                        publisher={SciPost}
+                                      }
+                                    </code></pre>
+                                    <input type="button" value="Copy to clipboard" class="btn btn-sm btn-secondary" onclick="copyToClipboard('#groha2018full');this.value='Copy to clipboard ✓'">
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <div class="card mb-4 box-shadow">
+                              <div class="card-body">
+                                <h4>Full counting statistics in the spin-1/2 Heisenberg XXZ chain
+                                </h4>
+                                <p> Mario Collura*, Fabian HL Essler*, Stefan Groha*<br>* co-first author</p>
+                                <p color="gray"><i>Journal of Physics A: Mathematical and Theoretical 50 (41), 414002, 2017</i></p>
+                                
+                                <div class="btn-group d-flex flex-wrap" data-toggle="buttons">
+                                    <button type="button" class="btn text-white border-right"data-toggle="collapse" style="background-color: gray;" href="#collapse_fullcountingxxz" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                    <button type="button" class="btn text-white border-left border-right" style="background-color: gray;" onclick="window.location='https://arxiv.org/pdf/1706.07939.pdf';">PDF (arXiv)</button>
+                                    <!--<button type="button" class="btn text-white border-left border-right" style="background-color: rgb(0, 153, 255);" onclick="window.location='download/code_pm_asymptotics.zip';">Code (zip)</button> -->
+                                    <button type="button" class="btn text-white border-left" style="background-color: gray;" data-toggle="collapse" href="#collapse_fullcountingxxz_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">Bibtex</button>
+                                </div>
+                                <div class="collapse" id="collapse_fullcountingxxz">
+                                  <div class="p-3 mb-2 bg-light text-dark">
+                                    The spin-1/2 Heisenberg chain exhibits a quantum critical regime characterized by quasi long-range magnetic order at zero temperature. We quantify the strength of quantum fluctuations in the ground state by determining the probability distributions of the components of the (staggered) subsystem magnetization. Some of these exhibit scaling and the corresponding universal scaling functions can be determined by free fermion methods and by exploiting a relation with the boundary sine-Gordon model.
+                                  </div>
+                                </div>
+                                <div class="collapse" id="collapse_fullcountingxxz_bibtex">
+                                  <div class="class="card-body">
+                                    <pre class="prettyprint"><code type="text" id="collura2017full">@article{collura2017full,
+                                        title={Full counting statistics in the spin-1/2 Heisenberg XXZ chain},
+                                        author={Collura, Mario and Essler, Fabian HL and Groha, Stefan},
+                                        journal={Journal of Physics A: Mathematical and Theoretical},
+                                        volume={50},
+                                        number={41},
+                                        pages={414002},
+                                        year={2017},
+                                        publisher={IOP Publishing}
+                                      }
+                                    </code></pre>
+                                    <input type="button" value="Copy to clipboard" class="btn btn-sm btn-secondary" onclick="copyToClipboard('#collura2017full');this.value='Copy to clipboard ✓'">
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <div class="card mb-4 box-shadow">
+                              <div class="card-body">
+                                <h4>Spinon decay in the spin-1/2 Heisenberg chain with weak next nearest neighbour exchange</h4>
+                                <p> Stefan Groha, Fabian HL Essler</p>
+                                <p color="gray"><i>Journal of Physics A: Mathematical and Theoretical 50 (334002), 2017</i></p>
+                                
+                                <div class="btn-group d-flex flex-wrap" data-toggle="buttons">
+                                    <button type="button" class="btn text-white border-right"data-toggle="collapse" style="background-color: gray;" href="#collapse_spinon" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                    <button type="button" class="btn text-white border-left border-right" style="background-color: gray;" onclick="window.location='https://arxiv.org/pdf/1702.06550.pdf';">PDF (arXiv)</button>
+                                    <!--<button type="button" class="btn text-white border-left border-right" style="background-color: rgb(0, 153, 255);" onclick="window.location='download/code_pm_asymptotics.zip';">Code (zip)</button> -->
+                                    <button type="button" class="btn text-white border-left" style="background-color: gray;" data-toggle="collapse" href="#collapse_spinon_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">Bibtex</button>
+                                </div>
+                                <div class="collapse" id="collapse_spinon">
+                                  <div class="p-3 mb-2 bg-light text-dark">
+                                    Integrable models support elementary excitations with infinite lifetimes. In the spin-1/2 Heisenberg chain these are known as spinons. We consider the stability of spinons when a weak integrability breaking perturbation is added to the Heisenberg chain in a magnetic field. We focus on the case where the perturbation is a next nearest neighbour exchange interaction. We calculate the spinon decay rate in leading order in perturbation theory using methods of integrability and identify the dominant decay channels. The decay rate is found to be small, which indicates that spinons remain well-defined excitations even though integrability is broken.
+                                  </div>
+                                </div>
+                                <div class="collapse" id="collapse_spinon_bibtex">
+                                  <div class="class="card-body">
+                                    <pre class="prettyprint"><code type="text" id="groha2017spinon">@article{groha2017spinon,
+                                        title={Spinon decay in the spin-1/2 Heisenberg chain with weak next nearest neighbour exchange},
+                                        author={Groha, Stefan and Essler, Fabian HL},
+                                        journal={Journal of Physics A: Mathematical and Theoretical},
+                                        volume={50},
+                                        number={33},
+                                        pages={334002},
+                                        year={2017},
+                                        publisher={IOP Publishing}
+                                      }
+                                    </code></pre>
+                                    <input type="button" value="Copy to clipboard" class="btn btn-sm btn-secondary" onclick="copyToClipboard('#groha2017spinon');this.value='Copy to clipboard ✓'">
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <div class="card mb-4 box-shadow">
+                              <div class="card-body">
+                                <h4>Thermalization and light cones in a model with weak integrability breaking</h4>
+                                <p> Bruno Bertini*, Fabian HL Essler*, Stefan Groha*, Neil J Robinson*<br>* co-first author</p>
+                                <p color="gray"><i>Physical Review B 94 (24), 245117, 2016</i></p>
+                                
+                                <div class="btn-group d-flex flex-wrap" data-toggle="buttons">
+                                    <button type="button" class="btn text-white border-right"data-toggle="collapse" style="background-color: gray;" href="#collapse_thermalizationlight" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                    <button type="button" class="btn text-white border-left border-right" style="background-color: gray;" onclick="window.location='https://arxiv.org/pdf/1608.01664.pdf';">PDF (arXiv)</button>
+                                    <!--<button type="button" class="btn text-white border-left border-right" style="background-color: rgb(0, 153, 255);" onclick="window.location='download/code_pm_asymptotics.zip';">Code (zip)</button> -->
+                                    <button type="button" class="btn text-white border-left" style="background-color: gray;" data-toggle="collapse" href="#collapse_thermalizationlight_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">Bibtex</button>
+                                </div>
+                                <div class="collapse" id="collapse_thermalizationlight">
+                                  <div class="p-3 mb-2 bg-light text-dark">
+                                    We employ equation-of-motion techniques to study the nonequilibrium dynamics in a lattice model of weakly interacting spinless fermions. Our model provides a simple setting for analyzing the effects of weak integrability-breaking perturbations on the time evolution after a quantum quench. We establish the accuracy of the method by comparing results at short and intermediate times to time-dependent density matrix renormalization group computations. For sufficiently weak integrability-breaking interactions we always observe prethermalization plateaus, where local observables relax to nonthermal values at intermediate time scales. At later times a crossover towards thermal behavior sets in. We determine the associated time scale, which depends on the initial state, the band structure of the noninteracting theory, and the strength of the integrability-breaking perturbation. Our method allows us to analyze in some detail the spreading of correlations and in particular the structure of the associated light cones in our model. We find that the interior and exterior of the light cone are separated by an intermediate region, the temporal width of which appears to scale with a universal power law t^1/3.
+                                  </div>
+                                </div>
+                                <div class="collapse" id="collapse_thermalizationlight_bibtex">
+                                  <div class="class="card-body">
+                                    <pre class="prettyprint"><code type="text" id="bertini2016thermalization">@article{bertini2016thermalization,
+                                        title={Thermalization and light cones in a model with weak integrability breaking},
+                                        author={Bertini, Bruno and Essler, Fabian HL and Groha, Stefan and Robinson, Neil J},
+                                        journal={Physical Review B},
+                                        volume={94},
+                                        number={24},
+                                        pages={245117},
+                                        year={2016},
+                                        publisher={APS}
+                                      }
+                                    </code></pre>
+                                    <input type="button" value="Copy to clipboard" class="btn btn-sm btn-secondary" onclick="copyToClipboard('#bertini2016thermalization');this.value='Copy to clipboard ✓'">
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <div class="card mb-4 box-shadow">
+                              <div class="card-body">
+                                <h4>Prethermalization and thermalization in models with weak integrability breaking</h4>
+                                <p> Bruno Bertini*, Fabian HL Essler*, Stefan Groha*, Neil J Robinson*<br>* co-first author</p>
+                                <p color="gray"><i>Physical review letters 115 (18), 180601, 2015</i></p>
+                                
+                                <div class="btn-group d-flex flex-wrap" data-toggle="buttons">
+                                    <button type="button" class="btn text-white border-right"data-toggle="collapse" style="background-color: gray;" href="#collapse_thermalization" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                    <button type="button" class="btn text-white border-left border-right" style="background-color: gray;" onclick="window.location='https://arxiv.org/pdf/1506.02994.pdf';">PDF (arXiv)</button>
+                                    <!--<button type="button" class="btn text-white border-left border-right" style="background-color: rgb(0, 153, 255);" onclick="window.location='download/code_pm_asymptotics.zip';">Code (zip)</button> -->
+                                    <button type="button" class="btn text-white border-left" style="background-color: gray;" data-toggle="collapse" href="#collapse_thermalization_bibtex" role="button" aria-expanded="false" aria-controls="collapse_thermalization_bibtex">Bibtex</button>
+                                </div>
+                                <div class="collapse" id="collapse_thermalization">
+                                  <div class="p-3 mb-2 bg-light text-dark">
+                                    We study the effects of integrability-breaking perturbations on the nonequilibrium evolution of many-particle quantum systems. We focus on a class of spinless fermion models with weak interactions. We employ equation of motion techniques that can be viewed as generalizations of quantum Boltzmann equations. We benchmark our method against time-dependent density matrix renormalization group computations and find it to be very accurate as long as interactions are weak. For small integrability breaking, we observe robust prethermalization plateaux for local observables on all accessible time scales. Increasing the strength of the integrability-breaking term induces a “drift” away from the prethermalization plateaux towards thermal behavior. We identify a time scale characterizing this crossover.
+                                  </div>
+                                </div>
+                                <div class="collapse" id="collapse_thermalization_bibtex">
+                                  <div class="class="card-body">
+                                    <pre class="prettyprint"><code type="text" id="bertini2015prethermalization">@article{bertini2015prethermalization,
+                                        title={Prethermalization and thermalization in models with weak integrability breaking},
+                                        author={Bertini, Bruno and Essler, Fabian HL and Groha, Stefan and Robinson, Neil J},
+                                        journal={Physical review letters},
+                                        volume={115},
+                                        number={18},
+                                        pages={180601},
+                                        year={2015},
+                                        publisher={APS}
+                                      }
+                                    </code></pre>
+                                    <input type="button" value="Copy to clipboard" class="btn btn-sm btn-secondary" onclick="copyToClipboard('#bertini2015prethermalization');this.value='Copy to clipboard ✓'">
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
