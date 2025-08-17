@@ -90,7 +90,7 @@ p.lead {
 }
 .social-icons .social-icon i.fas,
 .social-icons .social-icon i.fab { /* Target specific Font Awesome icon classes */
-  font-size: 3rem !important; /* Set to desired size, with !important */
+  font-size: 3rem; /* Set to desired size */
 }
 .social-icons .social-icon:last-child {
   margin-right: 0;
