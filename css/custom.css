@@ -85,8 +85,12 @@ p.lead {
 .social-icons .social-icon {
   display: inline-block; /* Changed to inline-block for simpler styling */
   color: #fff; /* Changed to white for dark background */
-  font-size: 2.2rem; /* Increased icon size */
-  margin-right: 1rem; /* Spacing between icons */
+  margin-right: 1.5rem; /* Adjusted spacing */
+  vertical-align: middle; /* Added for alignment */
+}
+.social-icons .social-icon i.fas,
+.social-icons .social-icon i.fab { /* Target specific Font Awesome icon classes */
+  font-size: 3rem !important; /* Set to desired size, with !important */
 }
 .social-icons .social-icon:last-child {
   margin-right: 0;
