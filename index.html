@@ -6,137 +6,56 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Stefan Groha's website</title>
+        <!-- Favicon and Apple Touch Icon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="manifest" href="assets/img/site.webmanifest">
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <style>
-            /* Custom Modern Styles */
-            body {
-                margin: 0;
-                padding: 0;
-            }
-            
-            .hero-section {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-            }
-            
-            
-            .social-link {
-                color: #6c757d;
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
-            
-            .social-link:hover {
-                color: var(--bs-primary);
-                transform: translateY(-2px);
-            }
-            
-            .navbar {
-                backdrop-filter: blur(10px);
-                background-color: rgba(255, 255, 255, 0.95) !important;
-            }
-            
-            .card {
-                border: none;
-                box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-                transition: box-shadow 0.15s ease-in-out;
-            }
-            
-            .card:hover {
-                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-            }
-            
-            .btn {
-                border-radius: 0.375rem;
-                font-weight: 500;
-            }
-            
-            .badge {
-                font-weight: 500;
-            }
-            
-            .text-primary {
-                color: #bd5d38 !important;
-            }
-            
-            .btn-primary {
-                background-color: #bd5d38;
-                border-color: #bd5d38;
-            }
-            
-            .btn-primary:hover {
-                background-color: #a0522d;
-                border-color: #a0522d;
-            }
-            
-            .btn-outline-primary {
-                color: #bd5d38;
-                border-color: #bd5d38;
-            }
-            
-            .btn-outline-primary:hover {
-                background-color: #bd5d38;
-                border-color: #bd5d38;
-            }
-            
-            .display-4, .display-5 {
-                font-weight: 700;
-            }
-            
-            .section-spacing {
-                padding: 5rem 0;
-            }
-            
-            @media (max-width: 768px) {
-                .hero-section {
-                    min-height: auto;
-                    padding: 3rem 0;
-                }
-                
-                .display-4 {
-                    font-size: 2.5rem;
-                }
-            }
-        </style>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68893764-1"></script>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <link href="css/custom.css" rel="stylesheet" />
+        
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNEJN665ZF"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
-          gtag('config', 'UA-68893764-1');
+          gtag('config', 'G-MNEJN665ZF');
         </script>
     </head>
     <body id="page-top">
-        <!-- Navigation-->
+        <!-- Skip to main content link for accessibility -->
+        <a class="skip-to-main-content-link" href="#main-content">Skip to main content</a>
+        <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
             <div class="container">
+                <!-- Navbar Brand/Logo -->
                 <a class="navbar-brand fw-bold" href="#page-top">Stefan Groha</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Navbar Toggler for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Navbar Collapse Content -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications">Publications</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#talks">Presentations</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blog/blog.html">Blog</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Page Content-->
-        <main>
-            <!-- Hero Section -->
+        <!-- Main Content Section -->
+        <main id="main-content">
+            <!-- About Section -->
             <section class="hero-section bg-light" id="about">
                 <div class="container py-5">
                     <div class="row align-items-center min-vh-100">
@@ -144,51 +63,64 @@
                             <div class="hero-content">
                                 <h1 class="display-4 fw-bold mb-3">
                                     Stefan <span class="text-primary">Groha</span>
-                                    <span class="text-dark" style="font-size: 0.6em; text-transform: none;">DPhil</span>
+                                    <small class="text-dark">DPhil</small>
                                 </h1>
                                 <h2 class="h4 text-muted mb-4">Senior AI/ML Engineer</h2>
+                                
+                                <!-- About Me Description -->
                                 <p class="lead mb-4">I lead research in causal machine learning and generative models for biomarker discovery, target identification, and drug response prediction at <a href="http://GSK.ai" class="text-decoration-none">GSK.ai</a>.</p>
-                                <p class="mb-4">My work leverages large-scale multi-omic datasets, genetic data, medical imaging, electronic health records, and clinical trial data to uncover causal biological mechanisms. I bring extensive expertise in bulk, single-cell, and spatial RNA sequencing, as well as perturbation data analysis, combining state-of-the-art machine learning with classical statistical methods.</p>
-                                <div class="mb-4">
-                                    <a href="mailto:s.groha@gmail.com" class="btn btn-outline-primary me-3">
-                                        <i class="fas fa-envelope me-2"></i> Contact Me
-                                    </a>
-                                    <a href="assets/pdf/Stefan_Groha_CV.pdf" class="btn btn-primary">
-                                        <i class="fas fa-file-pdf me-2"></i> Download CV
-                                    </a>
+                                <p class="mb-4">My work leverages large-scale multi-omic datasets, genetic data, medical imaging, electronic health records, and clinical trial data to uncover causal biological mechanisms. I bring extensive expertise in bulk, single-cell, and spatial RNA sequencing, as well as perturbation data analysis, combining state-of-the-art machine learning with classical statistical methods.<br><br>Before joining GSK, I was a postdoctoral research fellow at the Dana-Farber Cancer Institute and the Broad Institute of MIT and Harvard, working with <a href="http://gusevlab.org/" class="text-decoration-none">Alexander Gusev</a>. My PhD research at the University of Oxford focused on the intersection of theoretical condensed matter physics, non-equilibrium statistical mechanics, and quantum computing.</p>
+                                <!-- Social Links -->
+                                <div class="d-flex align-items-center mb-4"> 
+                                    
+                                    
+                                    <div class="social-links ms-3"> 
+                                        <a href="mailto:s.groha@gmail.com" class="social-link me-3" title="Email">
+                                            <i class="fas fa-envelope" style="font-size: 2rem;"></i>
+                                        </a>
+                                        <a href="https://scholar.google.com/citations?user=CN8ZdToAAAAJ&hl=en" class="social-link me-3" title="Google Scholar">
+                                            <i class="fa fa-graduation-cap" style="font-size: 2rem;"></i>
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/stefan-groha-5599b5104/" class="social-link me-3" title="LinkedIn">
+                                            <i class="fab fa-linkedin-in" style="font-size: 2rem;"></i>
+                                        </a>
+                                        <a href="https://github.com/stefangroha" class="social-link me-3" title="GitHub">
+                                            <i class="fab fa-github" style="font-size: 2rem;"></i>
+                                        </a>
+                                        <a href="assets/pdf/Stefan_Groha_CV.pdf" class="social-link" title="Download CV">
+                                            <i class="fas fa-file-pdf" style="font-size: 2rem;"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="social-links">
-                                    <a href="https://scholar.google.com/citations?user=CN8ZdToAAAAJ&hl=en" class="social-link me-3" title="Google Scholar">
-                                        <i class="fa fa-graduation-cap fa-lg"></i>
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/stefan-groha-5599b5104/" class="social-link me-3" title="LinkedIn">
-                                        <i class="fab fa-linkedin-in fa-lg"></i>
-                                    </a>
-                                    <a href="https://github.com/stefangroha" class="social-link" title="GitHub">
-                                        <i class="fab fa-github fa-lg"></i>
-                                    </a>
-                                </div>
+                                
+                                
+                                
                             </div>
                         </div>
-                        <div class="col-lg-4 text-center">
+                        <!-- Profile Image -->
+                        <div class="col-lg-4 text-center d-none d-lg-block">
                             <div class="hero-image">
-                                <img src="assets/img/profile.jpg" alt="Stefan Groha" class="img-fluid rounded-circle shadow-lg" style="max-width: 300px;">
+                                <picture>
+                                    <source srcset="assets/img/profile.webp" type="image/webp">
+                                    <img src="assets/img/profile_optimized.jpg" alt="Stefan Groha" class="img-fluid rounded-circle shadow-lg" style="max-width: 300px;" loading="lazy">
+                                </picture>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- Background Section -->
+            <!-- Empty Section (Placeholder or Future Use) -->
             <section class="py-5 bg-white">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <p class="text-muted">Before joining GSK, I was a postdoctoral research fellow at the Dana-Farber Cancer Institute and the Broad Institute of MIT and Harvard, working with <a href="http://gusevlab.org/" class="text-decoration-none">Alexander Gusev</a>. My PhD research at the University of Oxford focused on the intersection of theoretical condensed matter physics, non-equilibrium statistical mechanics, and quantum computing.</p>
+                            
                         </div>
                     </div>
                 </div>
             </section>
+            
             <!-- Publications Section -->
             <section class="py-5 bg-light" id="publications">
                 <div class="container">
@@ -197,12 +129,13 @@
                         <p class="lead text-muted">Research in machine learning, computational biology, and theoretical physics</p>
                     </div>
                     
-                    <!-- Selected Publications -->
+                    <!-- Selected Publications Sub-section -->
                     <div class="mb-5">
                         <h3 class="mb-4 text-primary">Selected Publications</h3>
                         <div class="row">
                     
-                    <!-- Selected: IL7 Paper -->
+                    
+                            <!-- Publication Item 1 -->
                             <div class="col-lg-12">
                                 <div class="card mb-3 border-primary">
                                     <div class="card-body">
@@ -211,15 +144,18 @@
                                         <p class="mb-1"><b>Stefan Groha</b>, et al. • <span class="text-muted"><i>Nature Medicine, 2022</i></span></p>
                                         <p class="text-muted mb-2"><small>• First GWAS to identify germline variants associated with immunotherapy toxicity</small></p>
                                         <div class="btn-group btn-group-sm" >
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_irAE" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
-                                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.nature.com/articles/s41591-022-02094-6';">PDF</button>
-                                            <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_irAE_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">BibTeX</button>
+                                            <!-- Abstract, PDF, BibTeX Buttons -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_irAE" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.nature.com/articles/s41591-022-02094-6';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_irAE_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                         </div>
+                                        <!-- Abstract Content -->
                                         <div class="collapse" id="collapse_irAE">
                                           <div class="p-3 mb-2 bg-light text-dark">
                                           Immune checkpoint inhibitors (ICIs) have yielded remarkable responses in patients across multiple cancer types, but often lead to immune related adverse events (irAEs). Although a germline cause for irAEs has been hypothesized, no systematic genome wide association study (GWAS) has been performed and no individual variants associated with the overall likelihood of developing irAEs have yet been identified. We carried out a Genome-Wide Association Study (GWAS) of 1,751 patients on ICIs across 12 cancer types, with replication in an independent cohort of 196 patients and independent clinical trial data from 2275 patients. We investigated two irAE phenotypes: (i) high-grade (3-5) events defined through manual curation and (ii) all detectable events (including high-grade) defined through electronic health record (EHR) diagnosis followed by manual confirmation. We identified three genome-wide significant associations (p<5×10−8) in the discovery cohort associated with all-grade irAEs: rs16906115 near IL7 (combined p=1.6×10−11; hazard ratio (HR)=2.1), rs75824728 near IL22RA1 (combined p=6.6×10−9; HR=1.9), and rs113861051 on 4p15 (combined p=1.3×10−8, HR=2.0); with rs16906115 replicating in two independent studies. The association near IL7 colocalized with the gain of a novel cryptic exon for IL7, a critical regulator of lymphocyte homeostasis. Patients carrying the IL7 germline variant exhibited significantly increased lymphocyte stability after ICI initiation than non-carriers, and this stability was predictive of downstream irAEs and improved survival.
                                           </div>
                                         </div>
+                                        <!-- BibTeX Content -->
                                         <div class="collapse" id="collapse_irAE_bibtex">
                                           <div class="card-body">
                                             <pre class="prettyprint"><code type="text" id="groha2022">@article{groha2022germline,
@@ -241,23 +177,27 @@
                                 </div>
                             </div>
                             
-                    <!-- Selected: SurviVAEl Paper -->
+                    
+                            <!-- Publication Item 2 -->
                             <div class="col-lg-12">
-                                <div class="card mb-3 border-info">
+                                <div class="card mb-3 border-primary">
                                     <div class="card-body">
                                         <h5 class="mb-2">SurviVAEl: Variational Autoencoders for Clustering Time Series</h5>
                                         <p class="mb-1"><b>Stefan Groha</b>, Alexander Gusev, Sebastian Schmon • <span class="text-muted"><i>NeurIPS Workshop, 2022</i></span></p>
-                                        <p class="text-muted mb-2"><small>• Novel VAE framework for multi-state survival analysis</small></p>
+                                        <p class="mb-2 text-muted"><small>• Novel VAE framework for multi-state survival analysis</small></p>
                                         <div class="btn-group btn-group-sm" >
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_survivael_selected" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
-                                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://openreview.net/pdf?id=pREEF8_kWNT';">PDF</button>
-                                            <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_survivael_bibtex_selected" role="button" aria-expanded="false" aria-controls="collapse_survivael_bibtex">BibTeX</button>
+                                            <!-- Abstract, PDF, BibTeX Buttons -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_survivael_selected" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://openreview.net/pdf?id=pREEF8_kWNT';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_survivael_bibtex_selected" role="button" aria-expanded="false" aria-controls="collapse_survivael_bibtex"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                         </div>
+                                        <!-- Abstract Content -->
                                         <div class="collapse" id="collapse_survivael_selected">
                                           <div class="p-3 mb-2 bg-light text-dark">
                                           Classical multi-state models, such as the Cox-Markov model, are limited in their ability to handle non-linear, time-dependent, or high-dimensional data. To address these limitations, we propose SurviVAEl, a multi-state survival analysis framework that utilizes a Variational Autoencoder (VAE) architecture. Our model allows for the quantification of uncertainty in its predictions and facilitates the clustering of patient trajectories in an interpretable manner. We show that the latent space of the variational model produces meaningful clusters, which can be used with a non-parametric Aalen–Johansen estimator to obtain state occupation probabilities.
                                           </div>
                                         </div>
+                                        <!-- BibTeX Content -->
                                         <div class="collapse" id="collapse_survivael_bibtex_selected">
                                           <div class="card-body">
                                             <pre class="prettyprint"><code type="text" id="groha2022survivael_selected">@inproceedings{groha2022survivael,
@@ -275,23 +215,27 @@
                                 </div>
                             </div>
                             
-                    <!-- Selected: SurvNode Paper -->
+                    
+                            <!-- Publication Item 3 -->
                             <div class="col-lg-12">
-                                <div class="card mb-3 border-info">
+                                <div class="card mb-3 border-primary">
                                     <div class="card-body">
                                         <h5 class="mb-2">A General Framework for Survival Analysis and Multi-State Modelling</h5>
                                         <p class="mb-1"><b>Stefan Groha</b>*, Sebastian Schmon*, Alexander Gusev • <span class="text-muted"><i>arXiv preprint, 2020</i></span><br><small class="text-muted">* co-first author</small></p>
-                                        <p class="text-muted mb-2"><small>• First general framework for multi-state survival analysis using neural ODEs</small></p>
+                                        <p class="mb-2 text-muted"><small>• First general framework for multi-state survival analysis using neural ODEs</small></p>
                                         <div class="btn-group btn-group-sm" >
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_survnode_selected" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
-                                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/abs/2006.04893';">PDF</button>
-                                            <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_survnode_bibtex_selected" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">BibTeX</button>
+                                            <!-- Abstract, PDF, BibTeX Buttons -->
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_survnode_selected" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/abs/2006.04893';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_survnode_bibtex_selected" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                         </div>
+                                        <!-- Abstract Content -->
                                         <div class="collapse" id="collapse_survnode_selected">
                                           <div class="p-3 mb-2 bg-light text-dark">
                                             Survival models are a popular tool for the analysis of time to event data with applications in medicine, engineering, economics and many more. Advances like the Cox proportional hazard model have enabled researchers to better describe hazard rates for the occurrence of single fatal events, but are limited by modeling assumptions, like proportionality of hazard rates and linear effects. Moreover, common phenomena are often better described through multiple states, for example, the progress of a disease might be modeled as healthy, sick and dead instead of healthy and dead, where the competing nature of death and disease has to be taken into account. Also, individual characteristics can vary significantly between observational units, like patients, resulting in idiosyncratic hazard rates and different disease trajectories. These considerations require flexible modeling assumptions. Current standard models, however, are often ill-suited for such an analysis. To overcome these issues, we propose the use of neural ordinary differential equations as a flexible and general method for estimating multi-state survival models by directly solving the Kolmogorov forward equations. To quantify the uncertainty in the resulting individual cause-specific hazard rates, we further introduce a variational latent variable model. We show that our model exhibits state-of-the-art performance on popular survival data sets and demonstrate its efficacy in a multi-state setting.
                                           </div>
                                         </div>
+                                        <!-- BibTeX Content -->
                                         <div class="collapse" id="collapse_survnode_bibtex_selected">
                                           <div class="card-body">
                                             <pre class="prettyprint"><code type="text" id="groha2020_selected">@article{groha2020general,
@@ -323,9 +267,9 @@
                                             <h6 class="mb-1"><strong>A comprehensive analysis of clinical and polygenic germline influences on somatic mutational burden</strong></h6>
                                             <p class="mb-1 text-muted">Kodi Taraszka, <b>Stefan Groha</b>, et al. • <i>The American Journal of Human Genetics, 2024</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_burden" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.cell.com/ajhg/fulltext/S0002-9297(23)00442-1';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_burden_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_burden" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.cell.com/ajhg/fulltext/S0002-9297(23)00442-1';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_burden_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_burden">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -359,9 +303,9 @@
                                             <h6 class="mb-1"><strong>Discovery of disease-associated cellular states using ResidPCA in single-cell RNA and ATAC sequencing data</strong></h6>
                                             <p class="mb-1 text-muted">Shaye Carver, Kodi Taraszka, <b>Stefan Groha</b>, Alexander Gusev • <i>bioRxiv, 2024</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_residpca" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.biorxiv.org/content/10.1101/2024.12.29.630536v1';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_residpca_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_residpca" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.biorxiv.org/content/10.1101/2024.12.29.630536v1';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_residpca_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_residpca">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -392,9 +336,9 @@
                                             <h6 class="mb-1"><strong>SurvLatent ODE: A Neural ODE based time-to-event model with competing risks for longitudinal data improves cancer-associated Venous Thromboembolism (VTE) prediction</strong></h6>
                                             <p class="mb-1 text-muted">Intae Moon, <b>Stefan Groha</b>, Alexander Gusev • <i>ML4H Conference, 2022</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_survlatent" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://proceedings.mlr.press/v182/moon22a.html';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_survlatent_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_survlatent" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://proceedings.mlr.press/v182/moon22a.html';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_survlatent_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_survlatent">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -426,9 +370,9 @@
                                             <h6 class="mb-1"><strong>Constructing germline research cohorts from the discarded reads of clinical tumor sequences</strong></h6>
                                             <p class="mb-1 text-muted">Alexander Gusev, <b>Stefan Groha</b>, et al • <i>Genome Medicine, 2021</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_cohorts" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00999-4';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_cohorts_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_cohorts" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00999-4';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_cohorts_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_cohorts">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -466,9 +410,9 @@
                                             <h6 class="mb-1"><strong>Clinical inflection point detection on the basis of EHR data to identify clinical trial-ready patients with cancer</strong></h6>
                                             <p class="mb-1 text-muted">Kenneth Kehl, <b>Stefan Groha</b>, et al • <i>JCO Clinical Cancer Informatics, 2021</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_inflection" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://ascopubs.org/doi/10.1200/CCI.20.00184';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_inflection_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_inflection" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://ascopubs.org/doi/10.1200/CCI.20.00184';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_inflection_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_inflection">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -501,9 +445,9 @@
                                             <h6 class="mb-1"><strong>Topological Data Analysis of copy number alterations in cancer</strong></h6>
                                             <p class="mb-1 text-muted"><b>Stefan Groha</b>*, Caroline Weis*, Alexander Gusev, Bastian Rieck • <i>arXiv preprint, 2020</i> <small class="text-muted">* co-first author</small></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_topocna" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/2011.11070';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_topocna_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_topocna" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/2011.11070';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_topocna_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_topocna">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -530,11 +474,12 @@
                         </div>
                     </div>
                     
-                    <!-- Physics Section -->
+                    <!-- Theoretical Physics Publications Sub-section -->
                     <div class="mb-5">
                         <h3 class="mb-4 text-warning">Theoretical Physics</h3>
                         <div class="physics-papers">
                             <ul class="list-unstyled">
+                                <!-- Publication Item 10 -->
                                 <li class="mb-3">
                                     <div class="d-flex align-items-start">
                                         <i class="fas fa-circle text-warning mt-2 mr-3" style="font-size: 8px;"></i>
@@ -542,15 +487,18 @@
                                             <h6 class="mb-1"><strong>Full counting statistics in the transverse field Ising chain</strong></h6>
                                             <p class="mb-1 text-muted"><b>Stefan Groha</b>, Fabian Essler, Pasquale Calabrese • <i>SciPost Physics, 2018</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_fullcountingising" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.scipost.org/SciPostPhys.4.6.043/pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_fullcountingising_bibtex" role="button">BibTeX</button>
+                                                <!-- Abstract, PDF, BibTeX Buttons -->
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_fullcountingising" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.scipost.org/SciPostPhys.4.6.043/pdf';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_fullcountingising_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
+                                            <!-- Abstract Content -->
                                             <div class="collapse mt-2" id="collapse_fullcountingising">
                                                 <div class="p-3 bg-light text-dark rounded">
                                                     We consider the full probability distribution for the transverse magnetization of a finite subsystem in the transverse field Ising chain. We derive a determinant representation of the corresponding characteristic function for general Gaussian states. We consider applications to the full counting statistics in the ground state, finite temperature equilibrium states, non-equilibrium steady states and time evolution after global quantum quenches. We derive an analytical expression for the time and subsystem size dependence of the characteristic function at sufficiently late times after a quantum quench. This expression features an interesting multiple light-cone structure.
                                                 </div>
                                             </div>
+                                            <!-- BibTeX Content -->
                                             <div class="collapse mt-2" id="collapse_fullcountingising_bibtex">
                                                 <div class="p-3 bg-light rounded">
                                                     <pre><code id="fullcountingising_bibtex">@article{groha2018full,
@@ -571,6 +519,7 @@
                                     </div>
                                 </li>
                                 
+                                <!-- Publication Item 11 -->
                                 <li class="mb-3">
                                     <div class="d-flex align-items-start">
                                         <i class="fas fa-circle text-warning mt-2 mr-3" style="font-size: 8px;"></i>
@@ -578,15 +527,18 @@
                                             <h6 class="mb-1"><strong>Full counting statistics in the spin-1/2 Heisenberg XXZ chain</strong></h6>
                                             <p class="mb-1 text-muted">Mario Collura*, Fabian HL Essler*, <b>Stefan Groha</b>* • <i>J. Phys. A: Math. Theor., 2017</i> <small class="text-muted">* co-first author</small></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_fullcountingxxz" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1706.07939.pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_fullcountingxxz_bibtex" role="button">BibTeX</button>
+                                                <!-- Abstract, PDF, BibTeX Buttons -->
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_fullcountingxxz" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1706.07939.pdf';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_fullcountingxxz_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
+                                            <!-- Abstract Content -->
                                             <div class="collapse mt-2" id="collapse_fullcountingxxz">
                                                 <div class="p-3 bg-light text-dark rounded">
                                                     The spin-1/2 Heisenberg chain exhibits a quantum critical regime characterized by quasi long-range magnetic order at zero temperature. We quantify the strength of quantum fluctuations in the ground state by determining the probability distributions of the components of the (staggered) subsystem magnetization. We derive a determinant representation for the characteristic function of the full counting statistics of the staggered magnetization component along the z-axis. We study the limiting distributions in different regimes and analyze the scaled cumulant generating function.
                                                 </div>
                                             </div>
+                                            <!-- BibTeX Content -->
                                             <div class="collapse mt-2" id="collapse_fullcountingxxz_bibtex">
                                                 <div class="p-3 bg-light rounded">
                                                     <pre><code id="fullcountingxxz_bibtex">@article{collura2017full,
@@ -607,6 +559,7 @@
                                     </div>
                                 </li>
                                 
+                                <!-- Publication Item 12 -->
                                 <li class="mb-3">
                                     <div class="d-flex align-items-start">
                                         <i class="fas fa-circle text-warning mt-2 mr-3" style="font-size: 8px;"></i>
@@ -614,15 +567,18 @@
                                             <h6 class="mb-1"><strong>Spinon decay in the spin-1/2 Heisenberg chain with weak next nearest neighbour exchange</strong></h6>
                                             <p class="mb-1 text-muted"><b>Stefan Groha</b>, Fabian HL Essler • <i>J. Phys. A: Math. Theor., 2017</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_spinon" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1702.06550.pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_spinon_bibtex" role="button">BibTeX</button>
+                                                <!-- Abstract, PDF, BibTeX Buttons -->
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_spinon" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1702.06550.pdf';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_spinon_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
+                                            <!-- Abstract Content -->
                                             <div class="collapse mt-2" id="collapse_spinon">
                                                 <div class="p-3 bg-light text-dark rounded">
                                                     Integrable models support elementary excitations with infinite lifetimes. In the spin-1/2 Heisenberg chain these are known as spinons. We consider the stability of spinons when a weak integrability breaking perturbation is added to the Heisenberg chain in a magnetic field. We calculate the spinon decay rate using perturbation theory and identify the dominant decay channels. We find that the decay rate is small, indicating that spinons remain well-defined excitations even though integrability is broken.
                                                 </div>
                                             </div>
+                                            <!-- BibTeX Content -->
                                             <div class="collapse mt-2" id="collapse_spinon_bibtex">
                                                 <div class="p-3 bg-light rounded">
                                                     <pre><code id="spinon_bibtex">@article{groha2017spinon,
@@ -643,6 +599,7 @@
                                     </div>
                                 </li>
                                 
+                                <!-- Publication Item 13 -->
                                 <li class="mb-3">
                                     <div class="d-flex align-items-start">
                                         <i class="fas fa-circle text-warning mt-2 mr-3" style="font-size: 8px;"></i>
@@ -650,15 +607,18 @@
                                             <h6 class="mb-1"><strong>Thermalization and light cones in a model with weak integrability breaking</strong></h6>
                                             <p class="mb-1 text-muted">Bruno Bertini*, Fabian HL Essler*, <b>Stefan Groha</b>*, Neil J Robinson* • <i>Phys. Rev. B, 2016</i> <small class="text-muted">* co-first author</small></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_thermalizationlight" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1608.01664.pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_thermalizationlight_bibtex" role="button">BibTeX</button>
+                                                <!-- Abstract, PDF, BibTeX Buttons -->
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_thermalizationlight" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1608.01664.pdf';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_thermalizationlight_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
+                                            <!-- Abstract Content -->
                                             <div class="collapse mt-2" id="collapse_thermalizationlight">
                                                 <div class="p-3 bg-light text-dark rounded">
                                                     We employ equation of motion techniques to study the non-equilibrium dynamics in a lattice model of weakly interacting spinless fermions. Our model provides a simple setting for analyzing the effects of weak integrability breaking perturbations on the time evolution after a quantum quench. We observe prethermalization plateaux for weak integrability-breaking interactions and a crossover towards thermal behavior at later times. We find an intermediate light cone region with a temporal width scaling as t^(1/3).
                                                 </div>
                                             </div>
+                                            <!-- BibTeX Content -->
                                             <div class="collapse mt-2" id="collapse_thermalizationlight_bibtex">
                                                 <div class="p-3 bg-light rounded">
                                                     <pre><code id="thermalizationlight_bibtex">@article{bertini2016thermalization,
@@ -679,6 +639,7 @@
                                     </div>
                                 </li>
                                 
+                                <!-- Publication Item 14 -->
                                 <li class="mb-3">
                                     <div class="d-flex align-items-start">
                                         <i class="fas fa-circle text-warning mt-2 mr-3" style="font-size: 8px;"></i>
@@ -686,15 +647,18 @@
                                             <h6 class="mb-1"><strong>Prethermalization and thermalization in models with weak integrability breaking</strong></h6>
                                             <p class="mb-1 text-muted">Bruno Bertini*, Fabian HL Essler*, <b>Stefan Groha</b>*, Neil J Robinson* • <i>Phys. Rev. Lett., 2015</i> <small class="text-muted">* co-first author</small></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_thermalization" role="button">Abstract</button>
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1506.02994.pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_thermalization_bibtex" role="button">BibTeX</button>
+                                                <!-- Abstract, PDF, BibTeX Buttons -->
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_thermalization" role="button"><i class="fas fa-file-alt me-2"></i>Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1506.02994.pdf';"><i class="fas fa-file-pdf me-2"></i>PDF</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_thermalization_bibtex" role="button"><i class="fas fa-quote-right me-2"></i>BibTeX</button>
                                             </div>
+                                            <!-- Abstract Content -->
                                             <div class="collapse mt-2" id="collapse_thermalization">
                                                 <div class="p-3 bg-light text-dark rounded">
                                                     We study the effects of integrability breaking perturbations on the non-equilibrium evolution of many-particle quantum systems. We focus on a class of spinless fermion models with weak interactions. Using equation of motion techniques similar to quantum Boltzmann equations, we observe robust prethermalization plateaux for local observables. We find that increasing integrability breaking causes drift towards thermal behavior. Our results provide insights into the mechanisms underlying thermalization in quantum many-body systems.
                                                 </div>
                                             </div>
+                                            <!-- BibTeX Content -->
                                             <div class="collapse mt-2" id="collapse_thermalization_bibtex">
                                                 <div class="p-3 bg-light rounded">
                                                     <pre><code id="thermalization_bibtex">@article{bertini2015prethermalization,
@@ -720,14 +684,25 @@
                 </div>
             </section>
             
-            <!-- Talks Section -->
-            <section class="py-5 bg-white" id="talks">
+            <!-- Empty Section (Placeholder or Future Use) -->
+            <section class="py-5 bg-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Talks and Presentations Section -->
+            <section class="py-5 bg-light" id="talks">
                 <div class="container">
                     <div class="text-center mb-5">
                         <h2 class="display-5 fw-bold">Talks and Presentations</h2>
                         <p class="lead text-muted">Conference presentations and invited talks</p>
                     </div>
-                    <!-- <h4 class="mb-5">Conference or invited talks</h4> -->
+                    <!-- List of Talks/Presentations -->
                     <ul class="list-bullets">
                         <li class="lead mb-2">IARC Collider bias and Mendelian randomization (CMR) working group, 2023, invited talk</li>
                         <li class="lead mb-2">Time series for Health, NeurIPS workshop, 2022, poster presentation</li>
@@ -754,12 +729,30 @@
                 </div>
             </section>
         </main>
+        <!-- Footer Section -->
+        <footer class="bg-dark py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="small text-center text-muted">Copyright &copy; 2025 Stefan Groha</div>
+                <!-- Footer Social Links -->
+                <div class="social-links text-center mt-3">
+                    <a href="mailto:s.groha@gmail.com" class="social-link me-3" title="Email">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=CN8ZdToAAAAJ&hl=en" class="social-link me-3" title="Google Scholar">
+                        <i class="fa fa-graduation-cap fa-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/stefan-groha-5599b5104/" class="social-link me-3" title="LinkedIn">
+                        <i class="fab fa-linkedin-in fa-lg"></i>
+                    </a>
+                    <a href="https://github.com/stefangroha" class="social-link" title="GitHub">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Core theme JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <!-- Custom scripts-->
         <script src="js/scripts.js"></script>
     </body>
 </html>
