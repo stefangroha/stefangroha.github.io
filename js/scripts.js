@@ -1,10 +1,3 @@
-/*!
- * Start Bootstrap - Resume v6.0.1 (https://startbootstrap.com/template-overviews/resume)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
- */
-
-// Smooth scrolling using native JavaScript
 document
   .querySelectorAll('a.js-scroll-trigger[href*="#"]:not([href="#"])')
   .forEach((anchor) => {
@@ -15,7 +8,7 @@ document
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
-        const headerOffset = 50; // Adjust this value as needed
+        const headerOffset = 50;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition =
           elementPosition + window.pageYOffset - headerOffset;
@@ -25,7 +18,6 @@ document
           behavior: "smooth",
         });
 
-        // Close responsive menu after click
         const navbarCollapse = document.querySelector(".navbar-collapse");
         if (navbarCollapse && navbarCollapse.classList.contains("show")) {
           const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
@@ -37,7 +29,6 @@ document
     });
   });
 
-// Function to copy bibtex to clipboard
 (function () {
   window.copyToClipboard = function (elementId) {
     const textToCopy = document.querySelector(elementId).textContent;
@@ -52,13 +43,11 @@ document
   };
 })();
 
-// Activate scrollspy to add active class to navbar items on scroll
 const scrollSpy = new bootstrap.ScrollSpy(document.body, {
   target: "#mainNav",
   offset: 74,
 });
 
-// Collapse Navbar
 (function () {
   const navbarCollapse = function () {
     const navbar = document.body.querySelector("#mainNav");
@@ -72,13 +61,10 @@ const scrollSpy = new bootstrap.ScrollSpy(document.body, {
     }
   };
 
-  // Collapse now if page is not at top
   navbarCollapse();
-  // Collapse the navbar when page is scrolled
   document.addEventListener("scroll", navbarCollapse);
 })();
 
-// Google Analytics event tracking for publication links
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".publication-link").forEach((link) => {
     link.addEventListener("click", function () {
