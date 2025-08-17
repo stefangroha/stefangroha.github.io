@@ -83,22 +83,17 @@ p.lead {
   }
 }
 .social-icons .social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 3.5rem;
-  width: 3.5rem;
-  background-color: #495057;
-  color: #fff;
-  border-radius: 100%;
-  font-size: 1.5rem;
-  margin-right: 1.5rem;
+  display: inline-block; /* Changed to inline-block for simpler styling */
+  color: #fff; /* Changed to white for dark background */
+  font-size: 2.2rem; /* Increased icon size */
+  margin-right: 1rem; /* Spacing between icons */
 }
 .social-icons .social-icon:last-child {
   margin-right: 0;
 }
 .social-icons .social-icon:hover {
-  background-color: #bd5d38;
+  color: #bd5d38; /* Primary color on hover */
+  background-color: transparent; /* Ensure no background on hover */
 }
 
 .dev-icons {
@@ -147,4 +142,28 @@ section.resume-section .resume-section-content {
 
 .hero-section h1 {
   margin-top: 0 !important;
+}
+
+.skip-to-main-content-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+
+.skip-to-main-content-link:focus {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  z-index: 999;
+  padding: 10px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  text-decoration: none;
 }
