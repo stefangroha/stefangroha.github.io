@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Stefan Groha's Blog - Analysis posts in Python, R, and computational biology" />
+        <meta name="author" content="Stefan Groha" />
+        <title>Blog - Stefan Groha</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <!-- Syntax highlighting for code blocks -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+        <style>
+            /* Custom Modern Styles */
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .hero-section {
+                min-height: 50vh;
+                display: flex;
+                align-items: center;
+            }
+            
+            .social-link {
+                color: #6c757d;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            
+            .social-link:hover {
+                color: var(--bs-primary);
+                transform: translateY(-2px);
+            }
+            
+            .navbar {
+                backdrop-filter: blur(10px);
+                background-color: rgba(255, 255, 255, 0.95) !important;
+            }
+            
+            .card {
+                border: none;
+                box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+                transition: box-shadow 0.15s ease-in-out;
+            }
+            
+            .card:hover {
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            }
+            
+            .btn {
+                border-radius: 0.375rem;
+                font-weight: 500;
+            }
+            
+            .badge {
+                font-weight: 500;
+            }
+            
+            .text-primary {
+                color: #bd5d38 !important;
+            }
+            
+            .btn-primary {
+                background-color: #bd5d38;
+                border-color: #bd5d38;
+            }
+            
+            .btn-primary:hover {
+                background-color: #a0522d;
+                border-color: #a0522d;
+            }
+            
+            .btn-outline-primary {
+                color: #bd5d38;
+                border-color: #bd5d38;
+            }
+            
+            .btn-outline-primary:hover {
+                background-color: #bd5d38;
+                border-color: #bd5d38;
+            }
+            
+            .display-4, .display-5 {
+                font-weight: 700;
+            }
+            
+            .post-card {
+                border-left: 4px solid #bd5d38;
+                transition: transform 0.2s ease;
+            }
+            
+            .post-card:hover {
+                transform: translateY(-2px);
+            }
+            
+            .tag {
+                background-color: #f8f9fa;
+                color: #495057;
+                padding: 0.25rem 0.5rem;
+                border-radius: 0.25rem;
+                font-size: 0.75rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0.25rem;
+                display: inline-block;
+            }
+            
+            .tag.python { background-color: #e3f2fd; color: #1976d2; }
+            .tag.r { background-color: #f3e5f5; color: #7b1fa2; }
+            .tag.ml { background-color: #e8f5e8; color: #388e3c; }
+            .tag.biology { background-color: #fff3e0; color: #f57c00; }
+            .tag.statistics { background-color: #fce4ec; color: #c2185b; }
+            
+                        .search-box {
+                border-radius: 2rem;
+                border: 2px solid #e9ecef;
+                padding: 0.375rem 0.75rem 0.375rem 1.5rem;
+                color: #495057 !important;
+                text-align: left;
+            }
+            
+            .search-box:focus {
+                border-color: #bd5d38;
+                box-shadow: 0 0 0 0.2rem rgba(189, 93, 56, 0.25);
+            }
+
+            
+
+            
+
+            
+            
+            @media (max-width: 768px) {
+                .hero-section {
+                    min-height: auto;
+                    padding: 3rem 0;
+                }
+            }
+        </style>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68893764-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-68893764-1');
+        </script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="../index.html">Stefan Groha</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#publications">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#talks">Presentations</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Page Content-->
+        <main>
+            <!-- Blog Hero Section -->
+            <section class="hero-section bg-light">
+                <div class="container py-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8 mx-auto text-center">
+                            <h1 class="display-4 fw-bold mb-3">
+                                <span class="text-primary">Blog</span>
+                            </h1>
+                            <p class="lead mb-4">Analysis posts in Python, R, and computational biology</p>
+                            <p class="text-muted">Exploring data science, machine learning, and computational methods through code and analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Search and Filter Section -->
+            <section class="py-4 bg-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control search-box" id="searchInput" placeholder="Search posts..." onkeyup="filterPosts()">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="dropdown">
+                                <button class="form-control search-box dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    All Categories
+                                </button>
+                                <div class="dropdown-menu w-100" aria-labelledby="categoryDropdown">
+                                    <a class="dropdown-item" href="#" data-value="all">All Categories</a>
+                                    <a class="dropdown-item" href="#" data-value="python">Python</a>
+                                    <a class="dropdown-item" href="#" data-value="r">R</a>
+                                    <a class="dropdown-item" href="#" data-value="ml">Machine Learning</a>
+                                    <a class="dropdown-item" href="#" data-value="biology">Computational Biology</a>
+                                    <a class="dropdown-item" href="#" data-value="statistics">Statistics</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Blog Posts Section -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                    <div class="row" id="postsContainer">
+                        
+                        <!-- Sample Post 1 -->
+                        <div class="col-lg-12 mb-4 post-item" data-category="python ml">
+                            <div class="card post-card h-100">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <span class="tag python">Python</span>
+                                        <span class="tag ml">Machine Learning</span>
+                                    </div>
+                                    <h5 class="card-title mb-3">Causal Inference with Python: A Practical Guide</h5>
+                                    <p class="card-text text-muted mb-3">Exploring causal inference methods using Python libraries like DoWhy and CausalML for biomarker discovery applications.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">March 15, 2024</small>
+                                        <a href="causal-inference-python.html" class="btn btn-outline-primary btn-sm">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sample Post 2 -->
+                        <div class="col-lg-12 mb-4 post-item" data-category="r statistics">
+                            <div class="card post-card h-100">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <span class="tag r">R</span>
+                                        <span class="tag statistics">Statistics</span>
+                                    </div>
+                                    <h5 class="card-title mb-3">Survival Analysis in R: Beyond Kaplan-Meier</h5>
+                                    <p class="card-text text-muted mb-3">Advanced survival analysis techniques including multi-state models and competing risks using R packages like mstate and cmprsk.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">March 8, 2024</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sample Post 3 -->
+                        <div class="col-lg-12 mb-4 post-item" data-category="python biology">
+                            <div class="card post-card h-100">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <span class="tag python">Python</span>
+                                        <span class="tag biology">Computational Biology</span>
+                                    </div>
+                                    <h5 class="card-title mb-3">Single-Cell RNA-seq Analysis with Scanpy</h5>
+                                    <p class="card-text text-muted mb-3">A comprehensive workflow for analyzing single-cell RNA sequencing data using Python's Scanpy ecosystem.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">March 1, 2024</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sample Post 4 -->
+                        <div class="col-lg-12 mb-4 post-item" data-category="r ml">
+                            <div class="card post-card h-100">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <span class="tag r">R</span>
+                                        <span class="tag ml">Machine Learning</span>
+                                    </div>
+                                    <h5 class="card-title mb-3">GWAS Analysis with R: From QC to Results</h5>
+                                    <p class="card-text text-muted mb-3">End-to-end genome-wide association study analysis using R, covering quality control, association testing, and visualization.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">February 22, 2024</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Coming Soon Posts -->
+                        <div class="col-12 mb-4">
+                            <div class="card border-0 bg-transparent">
+                                <div class="card-body text-center">
+                                    <h6 class="text-muted mb-3">More posts coming soon...</h6>
+                                    <p class="text-muted">
+                                        This blog will be regularly updated with new analysis posts covering:
+                                        <br>• Python data science workflows
+                                        <br>• R statistical analysis tutorials  
+                                        <br>• Machine learning applications in biology
+                                        <br>• Reproducible research practices
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- No Results Message -->
+                    <div id="noResults" class="text-center py-5" style="display: none;">
+                        <h5 class="text-muted">No posts found</h5>
+                        <p class="text-muted">Try adjusting your search terms or category filter.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Syntax highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+        
+        <!-- Blog functionality -->
+        <script>
+            function filterPosts() {
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const categoryFilter = document.getElementById('categoryDropdown').getAttribute('data-value') || 'all';
+                const posts = document.querySelectorAll('.post-item');
+                let visibleCount = 0;
+                
+                posts.forEach(post => {
+                    const title = post.querySelector('.card-title').textContent.toLowerCase();
+                    const content = post.querySelector('.card-text').textContent.toLowerCase();
+                    const categories = post.getAttribute('data-category');
+                    
+                    const matchesSearch = title.includes(searchTerm) || content.includes(searchTerm);
+                    const matchesCategory = categoryFilter === 'all' || categories.includes(categoryFilter);
+                    
+                    if (matchesSearch && matchesCategory) {
+                        post.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide no results message
+                const noResults = document.getElementById('noResults');
+                if (visibleCount === 0) {
+                    noResults.style.display = 'block';
+                } else {
+                    noResults.style.display = 'none';
+                }
+            }
+
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const value = this.getAttribute('data-value');
+                    const text = this.textContent;
+                    const dropdownButton = document.getElementById('categoryDropdown');
+                    dropdownButton.textContent = text;
+                    dropdownButton.setAttribute('data-value', value);
+                    filterPosts();
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            
+        </script>
+    </body>
+</html>

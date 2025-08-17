@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Causal Inference with Python: A Practical Guide - Stefan Groha's Blog" />
+        <meta name="author" content="Stefan Groha" />
+        <title>Causal Inference with Python: A Practical Guide - Stefan Groha</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <!-- Syntax highlighting for code blocks -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+        <style>
+            /* Custom Modern Styles */
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .navbar {
+                backdrop-filter: blur(10px);
+                background-color: rgba(255, 255, 255, 0.95) !important;
+            }
+            
+            .text-primary {
+                color: #bd5d38 !important;
+            }
+            
+            .btn-primary {
+                background-color: #bd5d38;
+                border-color: #bd5d38;
+            }
+            
+            .btn-primary:hover {
+                background-color: #a0522d;
+                border-color: #a0522d;
+            }
+            
+            .btn-outline-primary {
+                color: #bd5d38;
+                border-color: #bd5d38;
+            }
+            
+            .btn-outline-primary:hover {
+                background-color: #bd5d38;
+                border-color: #bd5d38;
+            }
+            
+            .article-content {
+                font-size: 1.1rem;
+                line-height: 1.7;
+            }
+            
+            .article-content h2 {
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+                color: #bd5d38;
+            }
+            
+            .article-content h3 {
+                margin-top: 1.5rem;
+                margin-bottom: 0.75rem;
+                color: #495057;
+            }
+            
+            .tag {
+                background-color: #f8f9fa;
+                color: #495057;
+                padding: 0.25rem 0.5rem;
+                border-radius: 0.25rem;
+                font-size: 0.75rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0.25rem;
+                display: inline-block;
+            }
+            
+            .tag.python { background-color: #e3f2fd; color: #1976d2; }
+            .tag.ml { background-color: #e8f5e8; color: #388e3c; }
+            
+            .code-block {
+                background-color: #f8f9fa;
+                border-radius: 0.375rem;
+                padding: 1rem;
+                margin: 1rem 0;
+                overflow-x: auto;
+            }
+            
+            .highlight-box {
+                background-color: #e8f5e8;
+                border-left: 4px solid #28a745;
+                padding: 1rem;
+                margin: 1rem 0;
+                border-radius: 0 0.375rem 0.375rem 0;
+            }
+            
+            .warning-box {
+                background-color: #fff3cd;
+                border-left: 4px solid #ffc107;
+                padding: 1rem;
+                margin: 1rem 0;
+                border-radius: 0 0.375rem 0.375rem 0;
+            }
+            
+            .article-meta {
+                border-bottom: 1px solid #e9ecef;
+                padding-bottom: 1rem;
+                margin-bottom: 2rem;
+            }
+        </style>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68893764-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-68893764-1');
+        </script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="../index.html">Stefan Groha</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#publications">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#talks">Presentations</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Page Content-->
+        <main>
+            <!-- Article Header -->
+            <section class="py-5 bg-light" style="margin-top: 4rem;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="article-meta">
+                                <div class="mb-3">
+                                    <span class="tag python">Python</span>
+                                    <span class="tag ml">Machine Learning</span>
+                                </div>
+                                <h1 class="display-5 fw-bold mb-3">Causal Inference with Python: A Practical Guide</h1>
+                                <p class="lead text-muted mb-3">Exploring causal inference methods using Python libraries like DoWhy and CausalML for biomarker discovery applications.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="fas fa-calendar me-2"></i>March 15, 2024
+                                        <span class="mx-2">•</span>
+                                        <i class="fas fa-clock me-2"></i>12 min read
+                                    </small>
+                                    <a href="../blog.html" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-arrow-left me-2"></i>Back to Blog
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Article Content -->
+            <section class="py-5 bg-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="article-content">
+                                
+                                <p>Causal inference is becoming increasingly important in biomedical research, particularly for identifying biomarkers and understanding drug response mechanisms. In this post, I'll walk through practical approaches to causal inference using Python, focusing on applications in precision medicine.</p>
+                                
+                                <h2>Why Causal Inference Matters in Biomarker Discovery</h2>
+                                
+                                <p>Traditional machine learning excels at prediction, but in biomedical research, we often need to understand <em>why</em> something happens, not just predict <em>what</em> will happen. Consider these scenarios:</p>
+                                
+                                <ul>
+                                    <li><strong>Biomarker validation:</strong> Does a genetic variant actually cause treatment response, or is it just correlated?</li>
+                                    <li><strong>Drug target identification:</strong> Will targeting a specific protein actually improve outcomes?</li>
+                                    <li><strong>Treatment selection:</strong> Which patients will benefit from a specific therapy?</li>
+                                </ul>
+                                
+                                <div class="highlight-box">
+                                    <strong>Key Insight:</strong> Correlation ≠ Causation. A biomarker might be highly predictive but not causally related to the outcome, making it less useful for therapeutic intervention.
+                                </div>
+                                
+                                <h2>Setting Up Your Python Environment</h2>
+                                
+                                <p>Let's start by installing the key libraries we'll need:</p>
+                                
+                                <div class="code-block">
+                                    <pre><code class="language-bash"># Install core causal inference libraries
+pip install dowhy causalml econml
+# Additional dependencies
+pip install pandas numpy matplotlib seaborn scikit-learn</code></pre>
+                                </div>
+                                
+                                <p>Now let's import the libraries and set up our analysis environment:</p>
+                                
+                                <div class="code-block">
+                                    <pre><code class="language-python">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+
+# Causal inference libraries
+import dowhy
+from causalml.inference.tree import UpliftTreeClassifier
+from causalml.inference.meta import LRSRegressor
+from econml.dml import DML</code></pre>
+                                </div>
+                                
+                                <h2>Case Study: Genetic Variants and Drug Response</h2>
+                                
+                                <p>Let's work through a realistic example using simulated genomic data. We'll investigate whether a genetic variant causally affects response to immunotherapy.</p>
+                                
+                                <h3>1. Data Generation</h3>
+                                
+                                <div class="code-block">
+                                    <pre><code class="language-python"># Simulate genomic data for causal analysis
+np.random.seed(42)
+n_patients = 1000
+
+# Generate confounders (age, tumor stage, etc.)
+age = np.random.normal(65, 12, n_patients)
+tumor_stage = np.random.choice([1, 2, 3, 4], n_patients, p=[0.2, 0.3, 0.3, 0.2])
+prior_treatments = np.random.poisson(2, n_patients)
+
+# Generate genetic variant (treatment variable)
+# Variant frequency influenced by age (population stratification)
+variant_prob = 0.3 + 0.002 * (age - 65)
+genetic_variant = np.random.binomial(1, variant_prob, n_patients)
+
+# Generate outcome with causal effect
+treatment_effect = 0.15  # True causal effect
+noise = np.random.normal(0, 0.1, n_patients)
+
+# Response rate influenced by confounders AND causal effect
+response = (0.4 + 
+           -0.01 * (age - 65) + 
+           -0.05 * tumor_stage + 
+           -0.02 * prior_treatments +
+           treatment_effect * genetic_variant + 
+           noise)
+
+# Create DataFrame
+data = pd.DataFrame({
+    'patient_id': range(n_patients),
+    'age': age,
+    'tumor_stage': tumor_stage,
+    'prior_treatments': prior_treatments,
+    'genetic_variant': genetic_variant,
+    'response_rate': np.clip(response, 0, 1)
+})
+
+print(f"Dataset shape: {data.shape}")
+print(f"Variant carriers: {genetic_variant.sum()} ({100*genetic_variant.mean():.1f}%)")
+</code></pre>
+                                </div>
+                                
+                                <h3>2. Naive Analysis (What NOT to Do)</h3>
+                                
+                                <p>First, let's see what happens if we ignore confounding:</p>
+                                
+                                <div class="code-block">
+                                    <pre><code class="language-python"># Naive comparison - just compare means
+variant_carriers = data[data['genetic_variant'] == 1]['response_rate']
+non_carriers = data[data['genetic_variant'] == 0]['response_rate']
+
+naive_effect = variant_carriers.mean() - non_carriers.mean()
+print(f"Naive estimate: {naive_effect:.3f}")
+print(f"True causal effect: {treatment_effect:.3f}")
+print(f"Bias: {naive_effect - treatment_effect:.3f}")
+</code></pre>
+                                </div>
+                                
+                                <div class="warning-box">
+                                    <strong>Warning:</strong> The naive estimate is biased because we haven't accounted for confounding variables like age, tumor stage, and prior treatments.
+                                </div>
+                                
+                                <h3>3. Causal Analysis with DoWhy</h3>
+                                
+                                <p>Now let's use DoWhy to properly estimate the causal effect:</p>
+                                
+                                <div class="code-block">
+                                    <pre><code class="language-python"># Step 1: Create causal model
+causal_model = dowhy.CausalModel(
+    data=data,
+    treatment='genetic_variant',
+    outcome='response_rate',
+    common_causes=['age', 'tumor_stage', 'prior_treatments']
+)
+
+# Step 2: Identify causal effect
+identified_estimand = causal_model.identify_effect(proceed_when_unidentifiable=True)
+print(identified_estimand)
+
+# Step 3: Estimate causal effect
+causal_estimate = causal_model.estimate_effect(
+    identified_estimand,
+    method_name="backdoor.linear_regression"
+)
+
+print(f"Causal estimate: {causal_estimate.value:.3f}")
+print(f"True causal effect: {treatment_effect:.3f}")
+print(f"Error: {abs(causal_estimate.value - treatment_effect):.3f}")
+</code></pre>
+                                </div>
+                                
+                                <h3>4. Robustness Checks</h3>
+                                
+                                <p>It's crucial to test the robustness of our causal estimates:</p>
+                                
+                                <div class="code-block">
+                                    <pre><code class="language-python"># Refutation tests
+refute_random_common_cause = causal_model.refute_estimate(
+    identified_estimand, causal_estimate,
+    method_name="random_common_cause"
+)
+
+refute_placebo = causal_model.refute_estimate(
+    identified_estimand, causal_estimate,
+    method_name="placebo_treatment_refuter"
+)
+
+print("Refutation with random common cause:")
+print(refute_random_common_cause)
+print("\nRefutation with placebo treatment:")
+print(refute_placebo)
+</code></pre>
+                                </div>
+                                
+                                <h2>Advanced: Heterogeneous Treatment Effects</h2>
+                                
+                                <p>In precision medicine, we're often interested in <em>who</em> benefits from treatment, not just the average effect:</p>
+                                
+                                <div class="code-block">
+                                    <pre><code class="language-python"># Use CausalML for uplift modeling
+from causalml.inference.meta import XLearner
+
+# Prepare features for uplift modeling
+X = data[['age', 'tumor_stage', 'prior_treatments']].values
+treatment = data['genetic_variant'].values
+y = data['response_rate'].values
+
+# Fit X-Learner
+xl = XLearner(learner=RandomForestRegressor(n_estimators=100, random_state=42))
+xl.fit(X, treatment, y)
+
+# Predict individual treatment effects
+te_pred = xl.predict(X)
+
+# Visualize heterogeneous effects
+plt.figure(figsize=(10, 6))
+plt.scatter(data['age'], te_pred, alpha=0.6, c=data['tumor_stage'], cmap='viridis')
+plt.xlabel('Age')
+plt.ylabel('Predicted Treatment Effect')
+plt.title('Heterogeneous Treatment Effects by Age and Tumor Stage')
+plt.colorbar(label='Tumor Stage')
+plt.axhline(y=treatment_effect, color='red', linestyle='--', label='True Average Effect')
+plt.legend()
+plt.show()
+</code></pre>
+                                </div>
+                                
+                                <h2>Key Takeaways</h2>
+                                
+                                <ol>
+                                    <li><strong>Always consider confounders:</strong> In genomic studies, population stratification and clinical variables can bias causal estimates.</li>
+                                    <li><strong>Use proper causal inference methods:</strong> Libraries like DoWhy, CausalML, and EconML provide robust tools for causal analysis.</li>
+                                    <li><strong>Validate your assumptions:</strong> Use refutation tests to check the robustness of your causal estimates.</li>
+                                    <li><strong>Consider heterogeneity:</strong> Different patients may respond differently to the same biomarker or treatment.</li>
+                                </ol>
+                                
+                                <div class="highlight-box">
+                                    <strong>Next Steps:</strong> Try applying these methods to your own genomic or clinical datasets. Remember that causal inference requires careful thought about study design and assumptions, not just algorithmic solutions.
+                                </div>
+                                
+                                <h2>Further Reading</h2>
+                                
+                                <ul>
+                                    <li><a href="https://causalml.readthedocs.io/" target="_blank">CausalML Documentation</a></li>
+                                    <li><a href="https://microsoft.github.io/dowhy/" target="_blank">DoWhy: A Python Library for Causal Inference</a></li>
+                                    <li><a href="https://econml.azurewebsites.net/" target="_blank">EconML: Machine Learning for Causal Inference</a></li>
+                                    <li>Pearl, J. "Causal inference in statistics: An overview" (2009)</li>
+                                </ul>
+                                
+                                <hr class="my-5">
+                                
+                                <div class="text-center">
+                                    <p class="text-muted mb-3">Found this helpful? Share your thoughts or questions!</p>
+                                    <a href="mailto:s.groha@gmail.com" class="btn btn-outline-primary me-3">
+                                        <i class="fas fa-envelope me-2"></i>Email Me
+                                    </a>
+                                    <a href="../blog.html" class="btn btn-primary">
+                                        <i class="fas fa-arrow-left me-2"></i>Back to Blog
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Syntax highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
