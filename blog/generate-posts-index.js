@@ -32,9 +32,14 @@ function extractMetadata(htmlContent, filename) {
     if (filenameDateMatch) {
       date = filenameDateMatch[1];
     } else {
-      // Use file modification time as fallback
-      const stats = fs.statSync(path.join(POSTS_DIR, filename));
-      date = stats.mtime.toISOString().split('T')[0];
+      // Use file modification time as fallback, with error handling
+      try {
+        const stats = fs.statSync(path.join(POSTS_DIR, filename));
+        date = stats.mtime.toISOString().split('T')[0];
+      } catch (statError) {
+        console.warn(`Could not get file stats for ${filename}:`, statError.message);
+        date = new Date().toISOString().split('T')[0]; // Fallback to current date
+      }
     }
   }
 
@@ -73,10 +78,11 @@ function extractMetadata(htmlContent, filename) {
   // Generate slug
   const slug = title
     .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
+    .replace(/[^a-z0-9\s-]/g, '') // Remove non-alphanumeric characters except spaces and hyphens
+    .replace(/\s+/g, '-')         // Replace spaces with single hyphens
+    .replace(/-+/g, '-')         // Replace multiple hyphens with single hyphen
+    .replace(/^-+/, '')           // Remove leading hyphens
+    .replace(/-+$/, '');          // Remove trailing hyphens
 
   return {
     filename,
@@ -157,19 +163,21 @@ function writeIndex(posts) {
  * Main function
  */
 function main() {
-  console.log('Generating posts index for org-mode blog...\n');
+  console.log('Starting blog post index generation...\n');
   
   const posts = generateIndex();
   writeIndex(posts);
   
   if (posts.length > 0) {
-    console.log('\nPosts summary:');
+    console.log('\nSuccessfully indexed the following posts:');
     posts.forEach(post => {
-      console.log(`- ${post.date}: ${post.title} [${post.tags.join(', ')}]`);
+      console.log(`- ${post.date}: ${post.title} (Tags: ${post.tags.join(', ')})`);
     });
+  } else {
+    console.log('\nNo blog posts found to index.');
   }
   
-  console.log('\nDone! Updated posts-index.json with metadata from HTML files.');
+  console.log('\nFinished updating posts-index.json.');
 }
 
 // Run if called directly

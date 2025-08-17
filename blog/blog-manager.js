@@ -40,11 +40,12 @@ class BlogManager {
       if (response.ok) {
         this.postsList = await response.json();
       } else {
-        console.warn('posts-index.json not found. Please run the build script to generate it.');
+        this.displayMessage('Failed to load blog posts. The posts index (posts-index.json) was not found. Please ensure it is generated.', 'error');
         this.postsList = [];
       }
     } catch (error) {
-      console.warn('Could not load posts index:', error);
+      this.displayMessage('An error occurred while loading blog posts. Please try again later.', 'error');
+      console.error('Could not load posts index:', error); // Keep detailed error in console
       this.postsList = [];
     }
   }
@@ -195,12 +196,23 @@ class BlogManager {
    * Extract main content, excluding title
    */
   extractContent(doc) {
-    const content = doc.querySelector('body, .content, #content, main');
-    if (content) {
-      // Remove title elements
-      const titleElements = content.querySelectorAll('h1.title, title');
+    // Prioritize specific Org-mode content containers
+    const contentElement = doc.querySelector('#content, .content');
+    if (contentElement) {
+      // Clone the element to avoid modifying the original document object
+      const clonedContent = contentElement.cloneNode(true);
+      // Remove title elements from the cloned content
+      const titleElements = clonedContent.querySelectorAll('h1.title, title');
       titleElements.forEach(el => el.remove());
-      return content.innerHTML;
+      return clonedContent.innerHTML;
+    }
+    // Fallback to body content if specific containers are not found
+    const bodyContent = doc.querySelector('body');
+    if (bodyContent) {
+      const clonedBody = bodyContent.cloneNode(true);
+      const titleElements = clonedBody.querySelectorAll('h1.title, title');
+      titleElements.forEach(el => el.remove());
+      return clonedBody.innerHTML;
     }
     return '';
   }
@@ -211,10 +223,11 @@ class BlogManager {
   generateSlug(title) {
     return title
       .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim('-');
+      .replace(/[^a-z0-9\s-]/g, '') // Remove non-alphanumeric characters except spaces and hyphens
+      .replace(/\s+/g, '-')         // Replace spaces with single hyphens
+      .replace(/-+/g, '-')         // Replace multiple hyphens with single hyphen
+      .replace(/^-+/, '')           // Remove leading hyphens
+      .replace(/-+$/, '');          // Remove trailing hyphens
   }
 
   /**
@@ -280,7 +293,7 @@ class BlogManager {
           <p class="card-text text-muted mb-3">${post.excerpt}</p>
           <div class="d-flex justify-content-between align-items-center">
             <small class="text-muted">${formattedDate}</small>
-            <a href="posts/${post.filename}" class="btn btn-outline-primary btn-sm">Read More</a>
+            <a href="post.html?post=${post.filename}" class="btn btn-outline-primary btn-sm">Read More</a>
           </div>
         </div>
       </div>
@@ -309,6 +322,29 @@ class BlogManager {
     const noResults = document.getElementById('noResults');
     if (noResults) {
       noResults.style.display = show ? 'block' : 'none';
+    }
+  }
+
+  /**
+   * Display a message in the posts container
+   */
+  displayMessage(message, type = 'info') {
+    const container = document.getElementById('postsContainer');
+    if (container) {
+      // Clear existing content, but keep the "coming soon" message if it exists
+      const existingComingSoon = container.querySelector('.col-12.mb-4');
+      container.innerHTML = ''; // Clear everything else
+
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `alert alert-${type === 'error' ? 'danger' : 'info'} text-center`;
+      messageDiv.setAttribute('role', 'alert');
+      messageDiv.textContent = message;
+      container.appendChild(messageDiv);
+
+      // Re-add the "coming soon" message if it was there
+      if (existingComingSoon) {
+        container.appendChild(existingComingSoon);
+      }
     }
   }
 
@@ -371,7 +407,7 @@ class BlogManager {
       dropdownMenu.appendChild(li);
     });
 
-    console.log('BlogManager: Generated dropdown with', sortedTags.length, 'tag options');
+    
   }
 
   /**

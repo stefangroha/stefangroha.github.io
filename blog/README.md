@@ -16,10 +16,9 @@ This system allows you to write blog posts in org-mode and automatically integra
 ```
 blog/
 ├── blog.html              # Main blog index page
-├── blog-manager.js         # Handles dynamic post loading
-├── post-wrapper.js         # Wraps posts with header/footer
-├── blog-header.html        # Template for post headers
-├── blog-footer.html        # Template for post footers
+├── blog-manager.js         # Handles dynamic post loading and filtering
+├── post.html               # Template for displaying individual blog posts
+├── post-loader.js          # Loads and displays individual blog post content into post.html
 ├── generate-posts-index.js # Script to generate post index
 └── posts/
     ├── posts-index.json    # Auto-generated index of posts
@@ -58,17 +57,12 @@ Supported tag styles for automatic styling:
 ### Export Process
 
 1. In Emacs: `C-c C-e h h` to export to HTML
-2. **Add the post-wrapper script** to the end of your exported HTML file:
-   ```html
-   <!-- Post wrapper script to add blog styling -->
-   <script src="../post-wrapper.js"></script>
-   ```
-3. Place the HTML file in the `blog/posts/` directory
-4. The post-wrapper script will automatically add header, footer, and styling when the page loads
+2. Place the exported HTML file in the `blog/posts/` directory.
+3. Ensure your exported HTML contains the main content within a `<div id="content" class="content">` or similar, as `post-loader.js` extracts content from these elements.
 
 ### Post Structure
 
-Your exported org-mode HTML will look like this:
+Your exported org-mode HTML should contain the main content within a div like this:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -85,18 +79,16 @@ Your exported org-mode HTML will look like this:
     <!-- Your org content here -->
     
 </div>
-
-<!-- Add this script at the end -->
-<script src="../post-wrapper.js"></script>
 </body>
 </html>
 ```
 
-The `post-wrapper.js` script will:
-- Load your blog header and footer templates
-- Extract metadata from the org content
-- Wrap your content with navigation and styling
-- Initialize syntax highlighting and other features
+Individual posts are displayed using `blog/post.html` as a template, which loads the content dynamically via `post-loader.js`. `post-loader.js` will:
+- Load the `posts-index.json` to get post metadata.
+- Extract the main content from your exported Org-mode HTML file (e.g., from `<div id="content">`).
+- Inject this content into the `#post-container` element within `post.html`.
+- Update the page title and meta tags based on the post metadata.
+- Initialize syntax highlighting and other features.
 
 ## Automation
 
