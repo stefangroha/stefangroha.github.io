@@ -76,17 +76,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" class="form-control search-box" id="searchInput" placeholder="Search posts...">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search posts...">
                         </div>
                         <div class="col-lg-6">
-                            <div class="dropdown">
-                                <button class="form-control search-box dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    All Categories
-                                </button>
-                                <ul class="dropdown-menu w-100" aria-labelledby="categoryDropdown">
-                                    <!-- Dropdown options will be generated automatically by blog-manager.js -->
-                                </ul>
-                            </div>
+                            <select class="form-select" id="categorySelect">
+                                <option value="">All Categories</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -98,20 +93,9 @@
                     <div class="row" id="postsContainer">
                         <!-- Posts will be loaded dynamically by blog-manager.js -->
                         
-                        <!-- Coming Soon Posts -->
-                        <div class="col-12 mb-4">
-                            <div class="border-0 bg-transparent">
-                                <div class="text-center">
-                                    <h6 class="text-muted mb-3">More posts coming soon...</h6>
-                                    <p class="text-muted">
-                                        This blog will be regularly updated with new analysis posts covering:
-                                        <br>• Python data science workflows
-                                        <br>• R statistical analysis tutorials  
-                                        <br>• Machine learning applications in biology
-                                        <br>• Reproducible research practices
-                                    </p>
-                                </div>
-                            </div>
+                        <!-- Coming Soon Message -->
+                        <div class="col-12 text-center text-muted py-4">
+                            <p>More posts coming soon...</p>
                         </div>
                         
                     </div>
@@ -150,9 +134,7 @@
         <!-- Custom scripts-->
         <script src="../js/scripts.js"></script>
         
-        <!-- Blog Manager -->
-        <script src="blog-manager.js" type="module"></script>
-        
-        <!-- Blog functionality is now handled by blog-manager.js -->
+        <!-- Simplified Blog System -->
+        <script src="blog.js"></script>
     </body>
 </html>
