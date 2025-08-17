@@ -9,9 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
-
-const POSTS_DIR = './posts';
-const INDEX_FILE = './posts/posts-index.json';
+const { POSTS_DIR, INDEX_FILE } = require('./config.js');
 
 /**
  * Extract metadata from org-mode HTML file

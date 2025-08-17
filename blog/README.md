@@ -1,227 +1,87 @@
-# Org-mode Blog Integration
+# Blog Post Workflow
 
-This system allows you to write blog posts in org-mode and automatically integrate them with your website, maintaining consistent styling and navigation. The system automatically wraps your raw org-mode exports with blog header/footer and generates the blog index.
+This guide outlines the steps to create and publish a new blog post for your website. The system is designed to allow you to write posts in Org-mode, export them to HTML, and then automatically integrate them into your blog.
 
-## Quick Start
+## 1. Write Your Post in Org-mode
 
-1. **Write your post in org-mode** with tags and metadata
-2. **Export to HTML**: `C-c C-e h h` in Emacs
-3. **Add post-wrapper script** to the exported HTML (see below)
-4. **Copy the HTML file** to `blog/posts/`
-5. **Update the index**: Run `node generate-posts-index.js`
-6. **Commit and push** to GitHub Pages
-
-## Directory Structure
-
-```
-blog/
-├── blog.html              # Main blog index page
-├── blog-manager.js         # Handles dynamic post loading and filtering
-├── post.html               # Template for displaying individual blog posts
-├── post-loader.js          # Loads and displays individual blog post content into post.html
-├── generate-posts-index.js # Script to generate post index
-└── posts/
-    ├── posts-index.json    # Auto-generated index of posts
-    └── *.html              # Your org-exported HTML posts
-```
-
-## Writing Posts
-
-### Org-mode Template
-
-Start your org files with proper metadata:
+Create your blog post in an Org-mode file (`.org`). Ensure you include the following metadata at the top of your file:
 
 ```org
 #+TITLE: Your Post Title
-#+DATE: 2025-01-15
-#+TAGS: python ml data-science
-#+DESCRIPTION: A brief description of your post
-
-Your post content here...
+#+DATE: YYYY-MM-DD
+#+TAGS: tag1 tag2 tag3
+#+DESCRIPTION: A brief description of your post (for SEO and excerpts)
 ```
 
-### Tags
+*   **`#+TITLE:`**: The main title of your blog post.
+*   **`#+DATE:`**: The publication date of your post in `YYYY-MM-DD` format.
+*   **`#+TAGS:`**: Space-separated keywords or categories for your post. These will be used for filtering and styling on the blog index page.
+*   **`#+DESCRIPTION:`**: A short summary or excerpt of your post. This will be used in the blog index and for SEO purposes.
 
-Tags are automatically extracted from:
-- `#+TAGS:` in your org file
-- `<span class="tag">` elements in exported HTML
-- `meta name="keywords"` in HTML head
+**Example Org-mode Content:**
 
-Supported tag styles for automatic styling:
-- `python` → Blue styling
-- `r` → Purple styling  
-- `ml`, `machine-learning` → Green styling
-- `biology`, `bio` → Orange styling
-- `statistics`, `stats` → Pink styling
+```org
+#+TITLE: My First Blog Post
+#+DATE: 2025-08-17
+#+TAGS: python data-science tutorial
+#+DESCRIPTION: A step-by-step guide to setting up your first Python data science project.
 
-### Export Process
+* Introduction
+This is the introduction to my first blog post.
 
-1. In Emacs: `C-c C-e h h` to export to HTML
-2. Place the exported HTML file in the `blog/posts/` directory.
-3. Ensure your exported HTML contains the main content within a `<div id="content" class="content">` or similar, as `post-loader.js` extracts content from these elements.
+* Setting up the Environment
+Here are some code examples:
 
-### Post Structure
+#+begin_src python
+import pandas as pd
+print("Hello, world!")
+#+end_src
 
-Your exported org-mode HTML should contain the main content within a div like this:
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Your Post Title</title>
-    <!-- org-mode's default CSS -->
-</head>
-<body>
-<div id="content" class="content">
-    <h1 class="title">Your Post Title</h1>
-    <div class="date">2025-01-15</div>
-    
-    <!-- Your org content here -->
-    
-</div>
-</body>
-</html>
+* Conclusion
+Thanks for reading!
 ```
 
-Individual posts are displayed using `blog/post.html` as a template, which loads the content dynamically via `post-loader.js`. `post-loader.js` will:
-- Load the `posts-index.json` to get post metadata.
-- Extract the main content from your exported Org-mode HTML file (e.g., from `<div id="content">`).
-- Inject this content into the `#post-container` element within `post.html`.
-- Update the page title and meta tags based on the post metadata.
-- Initialize syntax highlighting and other features.
+## Tag Styling
 
-## Automation
+The blog system automatically applies specific styling to certain tags. When you use these tags in your Org-mode posts, they will be displayed with a distinct visual style on the blog index page (`blog.html`).
 
-### Local Development
+Currently recognized tags and their associated styles are:
 
-Run the index generator after adding new posts:
+*   `python`: Blue styling
+*   `r`: Purple styling
+*   `ml` or `machine-learning`: Green styling
+*   `biology` or `bio`: Orange styling
+*   `statistics` or `stats`: Pink styling
+
+If you use other tags, they will be displayed with the default tag styling.
+
+## 2. Export to HTML
+
+Export your Org-mode file to HTML. In Emacs, you can typically do this by pressing `C-c C-e h h`. This will generate an HTML file with the same name as your Org-mode file (e.g., `my-first-blog-post.html`).
+
+## 3. Place the Exported HTML File
+
+Copy the generated HTML file into the `blog/posts/` directory:
 
 ```bash
-cd blog
+cp /path/to/your/exported-post.html /Users/stefan/My\ Drive/Org/Website/blog/posts/
+```
+
+## 4. Update the Blog Index
+
+After adding new posts (or modifying existing ones), you need to update the `posts-index.json` file. This file is used by the blog to list and display your posts.
+
+Navigate to the `blog` directory in your terminal and run the following command:
+
+```bash
+cd /Users/stefan/My\ Drive/Org/Website/blog
 node generate-posts-index.js
 ```
 
-This scans all HTML files in `posts/` and updates `posts-index.json` with:
-- Post titles (extracted from `<h1 class="title">` or `<title>`)
-- Publication dates (from `.date` elements or file modification time)
-- Tags (from `<span class="tag">` elements)
-- Descriptions (auto-generated from first paragraph)
-- URL slugs (auto-generated from titles)
+This script will scan all HTML files in `blog/posts/`, extract their metadata (title, date, tags, description), and update `posts-index.json`. You will see a summary of the indexed posts in your terminal.
 
-**Note**: The script only reads HTML files to extract metadata - it does not modify your org-exported HTML files.
+## 5. View Your Post
 
-### GitHub Pages Integration
+Your new post should now be visible on your blog index page (`blog.html`). You can also directly access individual posts via `post.html?post=your-post-filename.html`.
 
-The system works entirely with client-side JavaScript, making it compatible with GitHub Pages:
-
-1. **Static Generation**: The `generate-posts-index.js` script runs locally
-2. **Dynamic Loading**: Posts are loaded dynamically via `blog-manager.js`
-3. **Template Wrapping**: `post-wrapper.js` adds navigation and styling
-
-## Features
-
-### Automatic Integration
-- **Header/Footer**: Posts automatically get site navigation and styling via `post-wrapper.js`
-- **Responsive Design**: All content works on mobile and desktop
-- **Syntax Highlighting**: Code blocks are automatically highlighted
-- **Search & Filter**: Posts can be searched and filtered by tags
-- **Template Loading**: Automatically loads `blog-header.html` and `blog-footer.html` templates
-
-### SEO Optimization
-- **Meta Tags**: Automatic Open Graph and Twitter meta tags
-- **Structured URLs**: Clean, SEO-friendly URLs
-- **Performance**: Lazy loading and optimized assets
-
-### Styling
-- **Consistent Theme**: Posts match your site's design
-- **Typography**: Optimized reading experience
-- **Code Blocks**: Syntax highlighting for Python, R, and more
-- **Tables & Images**: Responsive formatting
-
-## Customization
-
-### Styling Posts
-
-Edit `blog-header.html` to customize post styling. Key CSS classes:
-
-- `.blog-post` - Main post container
-- `.blog-post h1, h2, h3` - Headers
-- `.blog-post pre code` - Code blocks
-- `.tag` - Tag styling
-
-### Adding New Tag Styles
-
-In `blog-manager.js`, update the `getTagClass()` method:
-
-```javascript
-getTagClass(tag) {
-  const tagLower = tag.toLowerCase();
-  if (tagLower.includes('python')) return 'python';
-  if (tagLower.includes('your-tag')) return 'your-style';
-  // ...
-}
-```
-
-Then add corresponding CSS in `blog-header.html`.
-
-## Troubleshooting
-
-### Posts Not Appearing
-
-1. Check that HTML files are in `blog/posts/`
-2. Verify `posts-index.json` was generated correctly
-3. Check browser console for JavaScript errors
-4. Ensure posts have the post-wrapper script included
-
-### Styling Issues
-
-1. Check that `blog-header.html` and `blog-footer.html` exist
-2. Verify the post-wrapper script is loading correctly
-3. Test that Bootstrap and other dependencies load
-4. Check browser console for template loading errors
-
-### Post-Wrapper Not Working
-
-1. Ensure the script tag is added: `<script src="../post-wrapper.js"></script>`
-2. Check that you're viewing the post via HTTP (not file://)
-3. Verify template files exist and are accessible
-4. Check browser console for CORS or loading errors
-
-### Tags Not Working
-
-1. Ensure tags are in the exported HTML
-2. Check the `extractTags()` method in `blog-manager.js`
-3. Verify tag extraction patterns match your org export format
-
-## Advanced Usage
-
-### Custom Metadata
-
-Add custom fields to `posts-index.json`:
-
-```json
-{
-  "filename": "my-post.html",
-  "title": "My Post",
-  "author": "Stefan Groha",
-  "category": "tutorial",
-  "featured": true
-}
-```
-
-### Multiple Authors
-
-Support multiple authors by adding author metadata to posts and updating the templates.
-
-### Categories
-
-Implement categories alongside tags by modifying the filtering system in `blog-manager.js`.
-
-## Deployment
-
-1. **Local**: Run `generate-posts-index.js` after adding posts
-2. **Commit**: Add all files including `posts-index.json`
-3. **Push**: Deploy to GitHub Pages
-4. **Verify**: Check that posts load correctly on the live site
-
-The system is designed to work entirely on GitHub Pages without server-side processing.
+---

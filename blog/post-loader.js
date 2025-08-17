@@ -1,3 +1,5 @@
+import { INDEX_FILE, POSTS_DIR } from './config.js';
+
 /**
  * Post Loader for Org-mode HTML Posts
  * Loads org-exported HTML content into the post.html template
@@ -27,7 +29,7 @@ class PostLoader {
    */
   async loadPostsIndex() {
     try {
-      const response = await fetch('/blog/posts/posts-index.json');
+      const response = await fetch(INDEX_FILE);
       if (!response.ok) {
         this.displayMessage('Failed to load blog posts index. Please ensure posts-index.json is generated.', 'error');
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -61,7 +63,7 @@ class PostLoader {
     }
 
     try {
-      const response = await fetch(`/blog/posts/${postFilename}`);
+      const response = await fetch(`${POSTS_DIR}${postFilename}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -167,19 +169,39 @@ class PostLoader {
    * Add syntax highlighting to code blocks
    */
   highlightCode() {
-    const codeBlocks = document.querySelectorAll('pre code, .src');
-    codeBlocks.forEach(block => {
-      if (!block.classList.contains('highlighted')) {
-        block.classList.add('language-auto');
-        block.classList.add('highlighted');
+    const codeBlocks = document.querySelectorAll('pre.src'); // Target only pre elements with 'src' class
+    codeBlocks.forEach(preBlock => {
+      // Check if the preBlock already contains a code element
+      let codeElement = preBlock.querySelector('code');
+
+      // If no code element exists, create one and wrap the content
+      if (!codeElement) {
+        codeElement = document.createElement('code');
+        // Move all child nodes from preBlock to codeElement
+        while (preBlock.firstChild) {
+          codeElement.appendChild(preBlock.firstChild);
+        }
+        preBlock.appendChild(codeElement); // Append the new code element to the preBlock
+      }
+
+      // Ensure the codeElement is not already highlighted
+      if (!codeElement.classList.contains('highlighted')) {
+        // Extract language from preBlock's class (e.g., 'src-python')
+        const srcClass = Array.from(preBlock.classList).find(cls => cls.startsWith('src-'));
+        if (srcClass) {
+          const language = srcClass.substring(4); // Get 'python' from 'src-python'
+          codeElement.classList.add(`language-${language}`);
+        } else {
+          // Fallback if no specific src- class is found (though less likely with Org-mode)
+          codeElement.classList.add('language-auto');
+        }
+        codeElement.classList.add('highlighted'); // Mark as highlighted to prevent re-processing
       }
     });
 
     // Load Prism.js for syntax highlighting if not already loaded
-    // This check is important to prevent multiple loads
     if (typeof Prism !== 'undefined') {
       Prism.highlightAll();
-      console.log('PostLoader: Prism.highlightAll() called.');
     } else {
       console.warn('PostLoader: Prism.js not found. Syntax highlighting may not work.');
     }

@@ -1,3 +1,5 @@
+import { POSTS_DIR, INDEX_FILE } from './config.js';
+
 /**
  * Blog Manager for Org-mode HTML Integration
  * Automatically loads and displays blog posts exported from org-mode
@@ -6,7 +8,7 @@
 class BlogManager {
   constructor() {
     this.posts = [];
-    this.postsDirectory = './posts/';
+    this.postsDirectory = POSTS_DIR;
     this.postsList = [];
     this.filteredPosts = [];
   }
@@ -36,7 +38,7 @@ class BlogManager {
    */
   async loadPostsList() {
     try {
-      const response = await fetch('./posts/posts-index.json');
+      const response = await fetch(INDEX_FILE);
       if (response.ok) {
         this.postsList = await response.json();
       } else {
