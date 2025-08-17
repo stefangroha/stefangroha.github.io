@@ -40,3 +40,13 @@
         target: "#sideNav",
     });
 })(jQuery); // End of use strict
+
+// Function to copy bibtex to clipboard
+function copyToClipboard(elementId) {
+    var textToCopy = document.querySelector(elementId).textContent;
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        console.log('Bibtex copied to clipboard');
+    }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
+}
