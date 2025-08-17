@@ -6,6 +6,10 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Stefan Groha's website</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="manifest" href="assets/img/site.webmanifest">
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
@@ -13,107 +17,17 @@
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <style>
-            /* Custom Modern Styles */
-            body {
-                margin: 0;
-                padding: 0;
-            }
-            
-            .hero-section {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-            }
-            
-            
-            .social-link {
-                color: #6c757d;
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
-            
-            .social-link:hover {
-                color: var(--bs-primary);
-                transform: translateY(-2px);
-            }
-            
-            .navbar {
-                backdrop-filter: blur(10px);
-                background-color: rgba(255, 255, 255, 0.95) !important;
-            }
-            
-            .card {
-                border: none;
-                box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-                transition: box-shadow 0.15s ease-in-out;
-            }
-            
-            .card:hover {
-                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-            }
-            
-            .btn {
-                border-radius: 0.375rem;
-                font-weight: 500;
-            }
-            
-            .badge {
-                font-weight: 500;
-            }
-            
-            .text-primary {
-                color: #bd5d38 !important;
-            }
-            
-            .btn-primary {
-                background-color: #bd5d38;
-                border-color: #bd5d38;
-            }
-            
-            .btn-primary:hover {
-                background-color: #a0522d;
-                border-color: #a0522d;
-            }
-            
-            .btn-outline-primary {
-                color: #bd5d38;
-                border-color: #bd5d38;
-            }
-            
-            .btn-outline-primary:hover {
-                background-color: #bd5d38;
-                border-color: #bd5d38;
-            }
-            
-            .display-4, .display-5 {
-                font-weight: 700;
-            }
-            
-            .section-spacing {
-                padding: 5rem 0;
-            }
-            
-            @media (max-width: 768px) {
-                .hero-section {
-                    min-height: auto;
-                    padding: 3rem 0;
-                }
-                
-                .display-4 {
-                    font-size: 2.5rem;
-                }
-            }
-        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="css/custom.css" rel="stylesheet" />
+        
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68893764-1"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'UA-68893764-1');
+          gtag('config', 'G-XXXXXXXXXX');
         </script>
     </head>
     <body id="page-top">
@@ -121,7 +35,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
             <div class="container">
                 <a class="navbar-brand fw-bold" href="#page-top">Stefan Groha</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -148,7 +62,7 @@
                                 </h1>
                                 <h2 class="h4 text-muted mb-4">Senior AI/ML Engineer</h2>
                                 <p class="lead mb-4">I lead research in causal machine learning and generative models for biomarker discovery, target identification, and drug response prediction at <a href="http://GSK.ai" class="text-decoration-none">GSK.ai</a>.</p>
-                                <p class="mb-4">My work leverages large-scale multi-omic datasets, genetic data, medical imaging, electronic health records, and clinical trial data to uncover causal biological mechanisms. I bring extensive expertise in bulk, single-cell, and spatial RNA sequencing, as well as perturbation data analysis, combining state-of-the-art machine learning with classical statistical methods.</p>
+                                <p class="mb-4">My work leverages large-scale multi-omic datasets, genetic data, medical imaging, electronic health records, and clinical trial data to uncover causal biological mechanisms. I bring extensive expertise in bulk, single-cell, and spatial RNA sequencing, as well as perturbation data analysis, combining state-of-the-art machine learning with classical statistical methods.<br><br>Before joining GSK, I was a postdoctoral research fellow at the Dana-Farber Cancer Institute and the Broad Institute of MIT and Harvard, working with <a href="http://gusevlab.org/" class="text-decoration-none">Alexander Gusev</a>. My PhD research at the University of Oxford focused on the intersection of theoretical condensed matter physics, non-equilibrium statistical mechanics, and quantum computing.</p>
                                 <div class="mb-4">
                                     <a href="mailto:s.groha@gmail.com" class="btn btn-outline-primary me-3">
                                         <i class="fas fa-envelope me-2"></i> Contact Me
@@ -172,23 +86,27 @@
                         </div>
                         <div class="col-lg-4 text-center">
                             <div class="hero-image">
-                                <img src="assets/img/profile.jpg" alt="Stefan Groha" class="img-fluid rounded-circle shadow-lg" style="max-width: 300px;">
+                                <picture>
+                                    <source srcset="assets/img/profile.webp" type="image/webp">
+                                    <img src="assets/img/profile_optimized.jpg" alt="Stefan Groha" class="img-fluid rounded-circle shadow-lg" style="max-width: 300px;" loading="lazy">
+                                </picture>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- Background Section -->
+            <!-- White Separator Section -->
             <section class="py-5 bg-white">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <p class="text-muted">Before joining GSK, I was a postdoctoral research fellow at the Dana-Farber Cancer Institute and the Broad Institute of MIT and Harvard, working with <a href="http://gusevlab.org/" class="text-decoration-none">Alexander Gusev</a>. My PhD research at the University of Oxford focused on the intersection of theoretical condensed matter physics, non-equilibrium statistical mechanics, and quantum computing.</p>
+                            <!-- Empty section for visual separation -->
                         </div>
                     </div>
                 </div>
             </section>
+            
             <!-- Publications Section -->
             <section class="py-5 bg-light" id="publications">
                 <div class="container">
@@ -211,9 +129,9 @@
                                         <p class="mb-1"><b>Stefan Groha</b>, et al. • <span class="text-muted"><i>Nature Medicine, 2022</i></span></p>
                                         <p class="text-muted mb-2"><small>• First GWAS to identify germline variants associated with immunotherapy toxicity</small></p>
                                         <div class="btn-group btn-group-sm" >
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_irAE" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_irAE" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
                                             <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.nature.com/articles/s41591-022-02094-6';">PDF</button>
-                                            <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_irAE_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">BibTeX</button>
+                                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_irAE_bibtex" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">BibTeX</button>
                                         </div>
                                         <div class="collapse" id="collapse_irAE">
                                           <div class="p-3 mb-2 bg-light text-dark">
@@ -243,15 +161,15 @@
                             
                     <!-- Selected: SurviVAEl Paper -->
                             <div class="col-lg-12">
-                                <div class="card mb-3 border-info">
+                                <div class="card mb-3 border-primary">
                                     <div class="card-body">
                                         <h5 class="mb-2">SurviVAEl: Variational Autoencoders for Clustering Time Series</h5>
                                         <p class="mb-1"><b>Stefan Groha</b>, Alexander Gusev, Sebastian Schmon • <span class="text-muted"><i>NeurIPS Workshop, 2022</i></span></p>
                                         <p class="text-muted mb-2"><small>• Novel VAE framework for multi-state survival analysis</small></p>
                                         <div class="btn-group btn-group-sm" >
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_survivael_selected" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_survivael_selected" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
                                             <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://openreview.net/pdf?id=pREEF8_kWNT';">PDF</button>
-                                            <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_survivael_bibtex_selected" role="button" aria-expanded="false" aria-controls="collapse_survivael_bibtex">BibTeX</button>
+                                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_survivael_bibtex_selected" role="button" aria-expanded="false" aria-controls="collapse_survivael_bibtex">BibTeX</button>
                                         </div>
                                         <div class="collapse" id="collapse_survivael_selected">
                                           <div class="p-3 mb-2 bg-light text-dark">
@@ -277,15 +195,15 @@
                             
                     <!-- Selected: SurvNode Paper -->
                             <div class="col-lg-12">
-                                <div class="card mb-3 border-info">
+                                <div class="card mb-3 border-primary">
                                     <div class="card-body">
                                         <h5 class="mb-2">A General Framework for Survival Analysis and Multi-State Modelling</h5>
                                         <p class="mb-1"><b>Stefan Groha</b>*, Sebastian Schmon*, Alexander Gusev • <span class="text-muted"><i>arXiv preprint, 2020</i></span><br><small class="text-muted">* co-first author</small></p>
                                         <p class="text-muted mb-2"><small>• First general framework for multi-state survival analysis using neural ODEs</small></p>
                                         <div class="btn-group btn-group-sm" >
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_survnode_selected" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_survnode_selected" role="button" aria-expanded="false" aria-controls="collapseExample">Abstract</button>
                                             <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/abs/2006.04893';">PDF</button>
-                                            <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_survnode_bibtex_selected" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">BibTeX</button>
+                                            <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_survnode_bibtex_selected" role="button" aria-expanded="false" aria-controls="collapse_PMMH_bibtex">BibTeX</button>
                                         </div>
                                         <div class="collapse" id="collapse_survnode_selected">
                                           <div class="p-3 mb-2 bg-light text-dark">
@@ -323,9 +241,9 @@
                                             <h6 class="mb-1"><strong>A comprehensive analysis of clinical and polygenic germline influences on somatic mutational burden</strong></h6>
                                             <p class="mb-1 text-muted">Kodi Taraszka, <b>Stefan Groha</b>, et al. • <i>The American Journal of Human Genetics, 2024</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_burden" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_burden" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.cell.com/ajhg/fulltext/S0002-9297(23)00442-1';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_burden_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_burden_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_burden">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -359,9 +277,9 @@
                                             <h6 class="mb-1"><strong>Discovery of disease-associated cellular states using ResidPCA in single-cell RNA and ATAC sequencing data</strong></h6>
                                             <p class="mb-1 text-muted">Shaye Carver, Kodi Taraszka, <b>Stefan Groha</b>, Alexander Gusev • <i>bioRxiv, 2024</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_residpca" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_residpca" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.biorxiv.org/content/10.1101/2024.12.29.630536v1';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_residpca_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_residpca_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_residpca">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -392,9 +310,9 @@
                                             <h6 class="mb-1"><strong>SurvLatent ODE: A Neural ODE based time-to-event model with competing risks for longitudinal data improves cancer-associated Venous Thromboembolism (VTE) prediction</strong></h6>
                                             <p class="mb-1 text-muted">Intae Moon, <b>Stefan Groha</b>, Alexander Gusev • <i>ML4H Conference, 2022</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_survlatent" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_survlatent" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://proceedings.mlr.press/v182/moon22a.html';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_survlatent_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_survlatent_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_survlatent">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -426,9 +344,9 @@
                                             <h6 class="mb-1"><strong>Constructing germline research cohorts from the discarded reads of clinical tumor sequences</strong></h6>
                                             <p class="mb-1 text-muted">Alexander Gusev, <b>Stefan Groha</b>, et al • <i>Genome Medicine, 2021</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_cohorts" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_cohorts" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00999-4';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_cohorts_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_cohorts_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_cohorts">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -466,9 +384,9 @@
                                             <h6 class="mb-1"><strong>Clinical inflection point detection on the basis of EHR data to identify clinical trial-ready patients with cancer</strong></h6>
                                             <p class="mb-1 text-muted">Kenneth Kehl, <b>Stefan Groha</b>, et al • <i>JCO Clinical Cancer Informatics, 2021</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_inflection" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_inflection" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://ascopubs.org/doi/10.1200/CCI.20.00184';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_inflection_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_inflection_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_inflection">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -501,9 +419,9 @@
                                             <h6 class="mb-1"><strong>Topological Data Analysis of copy number alterations in cancer</strong></h6>
                                             <p class="mb-1 text-muted"><b>Stefan Groha</b>*, Caroline Weis*, Alexander Gusev, Bastian Rieck • <i>arXiv preprint, 2020</i> <small class="text-muted">* co-first author</small></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_topocna" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_topocna" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/2011.11070';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_topocna_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_topocna_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_topocna">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -542,9 +460,9 @@
                                             <h6 class="mb-1"><strong>Full counting statistics in the transverse field Ising chain</strong></h6>
                                             <p class="mb-1 text-muted"><b>Stefan Groha</b>, Fabian Essler, Pasquale Calabrese • <i>SciPost Physics, 2018</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_fullcountingising" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_fullcountingising" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://www.scipost.org/SciPostPhys.4.6.043/pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_fullcountingising_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_fullcountingising_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_fullcountingising">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -578,9 +496,9 @@
                                             <h6 class="mb-1"><strong>Full counting statistics in the spin-1/2 Heisenberg XXZ chain</strong></h6>
                                             <p class="mb-1 text-muted">Mario Collura*, Fabian HL Essler*, <b>Stefan Groha</b>* • <i>J. Phys. A: Math. Theor., 2017</i> <small class="text-muted">* co-first author</small></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_fullcountingxxz" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_fullcountingxxz" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1706.07939.pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_fullcountingxxz_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_fullcountingxxz_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_fullcountingxxz">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -614,9 +532,9 @@
                                             <h6 class="mb-1"><strong>Spinon decay in the spin-1/2 Heisenberg chain with weak next nearest neighbour exchange</strong></h6>
                                             <p class="mb-1 text-muted"><b>Stefan Groha</b>, Fabian HL Essler • <i>J. Phys. A: Math. Theor., 2017</i></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_spinon" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_spinon" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1702.06550.pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_spinon_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_spinon_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_spinon">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -650,9 +568,9 @@
                                             <h6 class="mb-1"><strong>Thermalization and light cones in a model with weak integrability breaking</strong></h6>
                                             <p class="mb-1 text-muted">Bruno Bertini*, Fabian HL Essler*, <b>Stefan Groha</b>*, Neil J Robinson* • <i>Phys. Rev. B, 2016</i> <small class="text-muted">* co-first author</small></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_thermalizationlight" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_thermalizationlight" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1608.01664.pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_thermalizationlight_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_thermalizationlight_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_thermalizationlight">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -686,9 +604,9 @@
                                             <h6 class="mb-1"><strong>Prethermalization and thermalization in models with weak integrability breaking</strong></h6>
                                             <p class="mb-1 text-muted">Bruno Bertini*, Fabian HL Essler*, <b>Stefan Groha</b>*, Neil J Robinson* • <i>Phys. Rev. Lett., 2015</i> <small class="text-muted">* co-first author</small></p>
                                             <div class="btn-group btn-group-sm mt-1" >
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" href="#collapse_thermalization" role="button">Abstract</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#collapse_thermalization" role="button">Abstract</button>
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="window.location='https://arxiv.org/pdf/1506.02994.pdf';">PDF</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" href="#collapse_thermalization_bibtex" role="button">BibTeX</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" data-bs-target="#collapse_thermalization_bibtex" role="button">BibTeX</button>
                                             </div>
                                             <div class="collapse mt-2" id="collapse_thermalization">
                                                 <div class="p-3 bg-light text-dark rounded">
@@ -720,8 +638,19 @@
                 </div>
             </section>
             
+            <!-- White Separator Section -->
+            <section class="py-5 bg-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- Empty section for visual separation -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <!-- Talks Section -->
-            <section class="py-5 bg-white" id="talks">
+            <section class="py-5 bg-light" id="talks">
                 <div class="container">
                     <div class="text-center mb-5">
                         <h2 class="display-5 fw-bold">Talks and Presentations</h2>
@@ -755,10 +684,7 @@
             </section>
         </main>
         <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
