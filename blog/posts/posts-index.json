@@ -1,0 +1,14 @@
+[
+  {
+    "filename": "example-post.html",
+    "title": "Example Org-mode Post",
+    "slug": "example-org-mode-post",
+    "date": "2025-01-15",
+    "tags": [
+      "org-mode",
+      "blogging",
+      "example"
+    ],
+    "description": "This is an example of how your org-mode exported HTML posts will look. This content was exported from an org-mode file and is automatically integrated into your..."
+  }
+]

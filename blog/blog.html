@@ -6,14 +6,17 @@
         <meta name="description" content="Stefan Groha's Blog - Analysis posts in Python, R, and computational biology" />
         <meta name="author" content="Stefan Groha" />
         <title>Blog - Stefan Groha</title>
+        <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <link href="../css/custom.css" rel="stylesheet" />
         <!-- Syntax highlighting for code blocks -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
         <style>
@@ -144,24 +147,29 @@
                 }
             }
         </style>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68893764-1"></script>
+        
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNEJN665ZF"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
-          gtag('config', 'UA-68893764-1');
+          gtag('config', 'G-MNEJN665ZF');
         </script>
     </head>
     <body id="page-top">
-        <!-- Navigation-->
+        <!-- Skip to main content link for accessibility -->
+        <a class="skip-to-main-content-link" href="#main-content">Skip to main content</a>
+        <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
             <div class="container">
+                <!-- Navbar Brand/Logo -->
                 <a class="navbar-brand fw-bold" href="../index.html">Stefan Groha</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Navbar Toggler for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Navbar Collapse Content -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="../index.html#about">About</a></li>
@@ -173,8 +181,8 @@
             </div>
         </nav>
         
-        <!-- Page Content-->
-        <main>
+        <!-- Main Content Section -->
+        <main id="main-content">
             <!-- Blog Hero Section -->
             <section class="hero-section bg-light">
                 <div class="container py-5">
@@ -195,21 +203,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" class="form-control search-box" id="searchInput" placeholder="Search posts..." onkeyup="filterPosts()">
+                            <input type="text" class="form-control search-box" id="searchInput" placeholder="Search posts...">
                         </div>
                         <div class="col-lg-6">
                             <div class="dropdown">
-                                <button class="form-control search-box dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="form-control search-box dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     All Categories
                                 </button>
-                                <div class="dropdown-menu w-100" aria-labelledby="categoryDropdown">
-                                    <a class="dropdown-item" href="#" data-value="all">All Categories</a>
-                                    <a class="dropdown-item" href="#" data-value="python">Python</a>
-                                    <a class="dropdown-item" href="#" data-value="r">R</a>
-                                    <a class="dropdown-item" href="#" data-value="ml">Machine Learning</a>
-                                    <a class="dropdown-item" href="#" data-value="biology">Computational Biology</a>
-                                    <a class="dropdown-item" href="#" data-value="statistics">Statistics</a>
-                                </div>
+                                <ul class="dropdown-menu w-100" aria-labelledby="categoryDropdown">
+                                    <!-- Dropdown options will be generated automatically by blog-manager.js -->
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -220,83 +223,12 @@
             <section class="py-5 bg-light">
                 <div class="container">
                     <div class="row" id="postsContainer">
-                        
-                        <!-- Sample Post 1 -->
-                        <div class="col-lg-12 mb-4 post-item" data-category="python ml">
-                            <div class="card post-card h-100">
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <span class="tag python">Python</span>
-                                        <span class="tag ml">Machine Learning</span>
-                                    </div>
-                                    <h5 class="card-title mb-3">Causal Inference with Python: A Practical Guide</h5>
-                                    <p class="card-text text-muted mb-3">Exploring causal inference methods using Python libraries like DoWhy and CausalML for biomarker discovery applications.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">March 15, 2024</small>
-                                        <a href="causal-inference-python.html" class="btn btn-outline-primary btn-sm">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Sample Post 2 -->
-                        <div class="col-lg-12 mb-4 post-item" data-category="r statistics">
-                            <div class="card post-card h-100">
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <span class="tag r">R</span>
-                                        <span class="tag statistics">Statistics</span>
-                                    </div>
-                                    <h5 class="card-title mb-3">Survival Analysis in R: Beyond Kaplan-Meier</h5>
-                                    <p class="card-text text-muted mb-3">Advanced survival analysis techniques including multi-state models and competing risks using R packages like mstate and cmprsk.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">March 8, 2024</small>
-                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Sample Post 3 -->
-                        <div class="col-lg-12 mb-4 post-item" data-category="python biology">
-                            <div class="card post-card h-100">
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <span class="tag python">Python</span>
-                                        <span class="tag biology">Computational Biology</span>
-                                    </div>
-                                    <h5 class="card-title mb-3">Single-Cell RNA-seq Analysis with Scanpy</h5>
-                                    <p class="card-text text-muted mb-3">A comprehensive workflow for analyzing single-cell RNA sequencing data using Python's Scanpy ecosystem.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">March 1, 2024</small>
-                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Sample Post 4 -->
-                        <div class="col-lg-12 mb-4 post-item" data-category="r ml">
-                            <div class="card post-card h-100">
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <span class="tag r">R</span>
-                                        <span class="tag ml">Machine Learning</span>
-                                    </div>
-                                    <h5 class="card-title mb-3">GWAS Analysis with R: From QC to Results</h5>
-                                    <p class="card-text text-muted mb-3">End-to-end genome-wide association study analysis using R, covering quality control, association testing, and visualization.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">February 22, 2024</small>
-                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Posts will be loaded dynamically by blog-manager.js -->
                         
                         <!-- Coming Soon Posts -->
                         <div class="col-12 mb-4">
-                            <div class="card border-0 bg-transparent">
-                                <div class="card-body text-center">
+                            <div class="border-0 bg-transparent">
+                                <div class="text-center">
                                     <h6 class="text-muted mb-3">More posts coming soon...</h6>
                                     <p class="text-muted">
                                         This blog will be regularly updated with new analysis posts covering:
@@ -319,74 +251,35 @@
                 </div>
             </section>
         </main>
-        
+        <!-- Footer Section -->
+        <footer class="bg-dark py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="small text-center text-muted">Copyright &copy; 2025 Stefan Groha</div>
+                <!-- Footer Social Links -->
+                <div class="social-links text-center mt-3">
+                    <a href="mailto:s.groha@gmail.com" class="social-link me-3" title="Email">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=CN8ZdToAAAAJ&hl=en" class="social-link me-3" title="Google Scholar">
+                        <i class="fa fa-graduation-cap fa-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/stefan-groha-5599b5104/" class="social-link me-3" title="LinkedIn">
+                        <i class="fab fa-linkedin-in fa-lg"></i>
+                    </a>
+                    <a href="https://github.com/stefangroha" class="social-link" title="GitHub">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Syntax highlighting -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
-        <!-- Core theme JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <!-- Custom scripts-->
         <script src="../js/scripts.js"></script>
         
-        <!-- Blog functionality -->
-        <script>
-            function filterPosts() {
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-                const categoryFilter = document.getElementById('categoryDropdown').getAttribute('data-value') || 'all';
-                const posts = document.querySelectorAll('.post-item');
-                let visibleCount = 0;
-                
-                posts.forEach(post => {
-                    const title = post.querySelector('.card-title').textContent.toLowerCase();
-                    const content = post.querySelector('.card-text').textContent.toLowerCase();
-                    const categories = post.getAttribute('data-category');
-                    
-                    const matchesSearch = title.includes(searchTerm) || content.includes(searchTerm);
-                    const matchesCategory = categoryFilter === 'all' || categories.includes(categoryFilter);
-                    
-                    if (matchesSearch && matchesCategory) {
-                        post.style.display = 'block';
-                        visibleCount++;
-                    } else {
-                        post.style.display = 'none';
-                    }
-                });
-                
-                // Show/hide no results message
-                const noResults = document.getElementById('noResults');
-                if (visibleCount === 0) {
-                    noResults.style.display = 'block';
-                } else {
-                    noResults.style.display = 'none';
-                }
-            }
-
-            document.querySelectorAll('.dropdown-item').forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const value = this.getAttribute('data-value');
-                    const text = this.textContent;
-                    const dropdownButton = document.getElementById('categoryDropdown');
-                    dropdownButton.textContent = text;
-                    dropdownButton.setAttribute('data-value', value);
-                    filterPosts();
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            
-        </script>
+        <!-- Blog Manager -->
+        <script src="blog-manager.js"></script>
+        
+        <!-- Blog functionality is now handled by blog-manager.js -->
     </body>
 </html>
