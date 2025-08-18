@@ -3,10 +3,10 @@
     "filename": "example-post.html",
     "title": "Your Post Title",
     "slug": "your-post-title",
-    "date": "2025-08-17",
+    "date": "2025-08-18",
     "tags": [],
-    "description": "import torch def test_func(x: torch.Tensor) -&gt; int: return 1 2. Test table This is a table",
+    "description": "import torch def test_func(x: torch.Tensor) -&gt; int: return 1 and an R block",
     "readingTime": "1 min read",
-    "wordCount": 115
+    "wordCount": 136
   }
 ]

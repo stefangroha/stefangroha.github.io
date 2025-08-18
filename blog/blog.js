@@ -6,6 +6,8 @@ class Blog {
   constructor() {
     this.posts = [];
     this.filteredPosts = [];
+    this.currentPage = 1;
+    this.postsPerPage = 10;
     this.elements = {};
     this.cacheElements();
   }
@@ -16,7 +18,9 @@ class Blog {
       searchInput: document.getElementById('searchInput'),
       categorySelect: document.getElementById('categorySelect'),
       noResults: document.getElementById('noResults'),
-      postContainer: document.getElementById('post-container')
+      postContainer: document.getElementById('post-container'),
+      paginationContainer: document.getElementById('paginationContainer'),
+      paginationList: document.getElementById('paginationList')
     };
   }
 
@@ -70,15 +74,26 @@ class Blog {
 
     if (this.filteredPosts.length === 0) {
       this.showNoResults(true);
+      this.showPagination(false);
       return;
     }
 
     this.showNoResults(false);
     
-    this.filteredPosts.forEach(post => {
+    // Calculate pagination
+    const totalPages = Math.ceil(this.filteredPosts.length / this.postsPerPage);
+    const startIndex = (this.currentPage - 1) * this.postsPerPage;
+    const endIndex = startIndex + this.postsPerPage;
+    const postsToShow = this.filteredPosts.slice(startIndex, endIndex);
+    
+    // Render posts for current page
+    postsToShow.forEach(post => {
       const postElement = this.createPostCard(post);
       this.elements.postsContainer.insertBefore(postElement, this.elements.postsContainer.lastElementChild);
     });
+    
+    // Update pagination
+    this.renderPagination(totalPages);
   }
 
   createPostCard(post) {
@@ -126,6 +141,8 @@ class Blog {
       return matchesSearch && matchesCategory;
     });
 
+    // Reset to first page when filtering
+    this.currentPage = 1;
     this.renderPosts();
   }
 
@@ -137,6 +154,117 @@ class Blog {
   showNoResults(show) {
     if (this.elements.noResults) {
       this.elements.noResults.style.display = show ? 'block' : 'none';
+    }
+  }
+
+  showPagination(show) {
+    if (this.elements.paginationContainer) {
+      this.elements.paginationContainer.style.display = show ? 'flex' : 'none';
+    }
+  }
+
+  renderPagination(totalPages) {
+    if (!this.elements.paginationList || totalPages <= 1) {
+      this.showPagination(false);
+      return;
+    }
+
+    this.showPagination(true);
+    this.elements.paginationList.innerHTML = '';
+
+    // Previous button
+    const prevItem = document.createElement('li');
+    prevItem.className = `page-item ${this.currentPage === 1 ? 'disabled' : ''}`;
+    prevItem.innerHTML = `
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    `;
+    if (this.currentPage > 1) {
+      prevItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.goToPage(this.currentPage - 1);
+      });
+    }
+    this.elements.paginationList.appendChild(prevItem);
+
+    // Page numbers
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    
+    // Adjust start page if we're near the end
+    if (endPage - startPage < maxVisiblePages - 1) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    // Add first page and ellipsis if needed
+    if (startPage > 1) {
+      this.addPageButton(1);
+      if (startPage > 2) {
+        this.addEllipsis();
+      }
+    }
+
+    // Add visible page numbers
+    for (let page = startPage; page <= endPage; page++) {
+      this.addPageButton(page);
+    }
+
+    // Add ellipsis and last page if needed
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        this.addEllipsis();
+      }
+      this.addPageButton(totalPages);
+    }
+
+    // Next button
+    const nextItem = document.createElement('li');
+    nextItem.className = `page-item ${this.currentPage === totalPages ? 'disabled' : ''}`;
+    nextItem.innerHTML = `
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    `;
+    if (this.currentPage < totalPages) {
+      nextItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.goToPage(this.currentPage + 1);
+      });
+    }
+    this.elements.paginationList.appendChild(nextItem);
+  }
+
+  addPageButton(page) {
+    const pageItem = document.createElement('li');
+    pageItem.className = `page-item ${page === this.currentPage ? 'active' : ''}`;
+    pageItem.innerHTML = `<a class="page-link" href="#">${page}</a>`;
+    
+    if (page !== this.currentPage) {
+      pageItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.goToPage(page);
+      });
+    }
+    
+    this.elements.paginationList.appendChild(pageItem);
+  }
+
+  addEllipsis() {
+    const ellipsisItem = document.createElement('li');
+    ellipsisItem.className = 'page-item disabled';
+    ellipsisItem.innerHTML = '<span class="page-link">...</span>';
+    this.elements.paginationList.appendChild(ellipsisItem);
+  }
+
+  goToPage(page) {
+    this.currentPage = page;
+    this.renderPosts();
+    
+    // Scroll to top of posts section
+    if (this.elements.postsContainer) {
+      this.elements.postsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
