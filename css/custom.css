@@ -597,12 +597,17 @@ body {
     box-shadow: var(--shadow);
 }
 
+/* Override org-mode's default pre margins */
+.org-src-container pre,
+pre.src,
+pre[class*="src-"],
 pre[class*="language-"] {
-    margin: 0;
+    margin: 0 !important;
     border-radius: 0;
     font-size: 0.875rem;
     line-height: 1.4;
     padding: 1rem;
+    border: none !important;
 }
 
 /* Disable org-mode's built-in language labels */
