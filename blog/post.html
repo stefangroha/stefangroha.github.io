@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="{{description}}" />
+    <meta name="description" content="Stefan Groha's Blog" />
     <meta name="author" content="Stefan Groha" />
-    <title>{{title}} - Stefan Groha</title>
+    <title>Blog Post - Stefan Groha</title>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="{{url}}">
-    <meta property="og:title" content="{{title}}">
-    <meta property="og:description" content="{{description}}">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Blog Post">
+    <meta property="og:description" content="Stefan Groha's Blog">
     <meta property="og:site_name" content="Stefan Groha's Blog">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary">
-    <meta property="twitter:url" content="{{url}}">
-    <meta property="twitter:title" content="{{title}}">
-    <meta property="twitter:description" content="{{description}}">
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="Blog Post">
+    <meta property="twitter:description" content="Stefan Groha's Blog">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico" />
@@ -39,7 +39,25 @@
     <!-- Syntax highlighting for code blocks -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
     
-    
+    <!-- MathJax for mathematical notation -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)'], ['$', '$']],
+          displayMath: [['\\[', '\\]'], ['$$', '$$']],
+          processEscapes: true,
+          processEnvironments: true,
+          packages: {'[+]': ['ams', 'physics', 'mhchem']}
+        },
+        svg: {
+          fontCache: 'global'
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNEJN665ZF"></script>
@@ -117,10 +135,16 @@
     <!-- Custom scripts-->
     <script src="../../js/scripts.js"></script>
     
-    <!-- Syntax highlighting -->
+    <!-- Enhanced syntax highlighting -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-r.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-latex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markdown.min.js"></script>
 
     <!-- Simplified Blog System -->
     <script src="blog.js"></script>

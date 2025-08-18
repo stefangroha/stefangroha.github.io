@@ -20,6 +20,25 @@
         <!-- Syntax highlighting for code blocks -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
         
+        <!-- MathJax for mathematical notation -->
+        <script>
+          window.MathJax = {
+            tex: {
+              inlineMath: [['\\(', '\\)'], ['$', '$']],
+              displayMath: [['\\[', '\\]'], ['$$', '$$']],
+              processEscapes: true,
+              processEnvironments: true,
+              packages: {'[+]': ['ams', 'physics', 'mhchem']}
+            },
+            svg: {
+              fontCache: 'global'
+            },
+            options: {
+              skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+          };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
         
         <!-- Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNEJN665ZF"></script>

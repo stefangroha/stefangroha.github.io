@@ -12,6 +12,36 @@ const path = require('path');
 const { POSTS_DIR, INDEX_FILE } = require('./config.js');
 
 /**
+ * Calculate reading time from HTML content
+ */
+function calculateReadingTime(htmlContent) {
+  try {
+    // Extract text content from HTML
+    const textContent = htmlContent
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '') // Remove script tags
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')   // Remove style tags
+      .replace(/<[^>]*>/g, ' ')                          // Remove HTML tags
+      .replace(/\s+/g, ' ')                              // Normalize whitespace
+      .trim();
+    
+    // Calculate word count (average 200 words per minute)
+    const wordCount = textContent.split(/\s+/).filter(word => word.length > 0).length;
+    const readingTimeMinutes = Math.max(1, Math.ceil(wordCount / 200));
+    
+    return {
+      readingTime: `${readingTimeMinutes} min read`,
+      wordCount: wordCount
+    };
+  } catch (error) {
+    console.warn('Error calculating reading time:', error.message);
+    return {
+      readingTime: '~ min read',
+      wordCount: 0
+    };
+  }
+}
+
+/**
  * Extract metadata from org-mode HTML file
  */
 function extractMetadata(htmlContent, filename) {
@@ -82,13 +112,18 @@ function extractMetadata(htmlContent, filename) {
     .replace(/^-+/, '')           // Remove leading hyphens
     .replace(/-+$/, '');          // Remove trailing hyphens
 
+  // Calculate reading time
+  const readingTimeData = calculateReadingTime(htmlContent);
+
   return {
     filename,
     title,
     slug,
     date,
     tags: [...new Set(tags)], // Remove duplicates
-    description
+    description,
+    readingTime: readingTimeData.readingTime,
+    wordCount: readingTimeData.wordCount
   };
 }
 
@@ -125,7 +160,7 @@ function generateIndex() {
         // Extract metadata for index
         const metadata = extractMetadata(htmlContent, filename);
         posts.push(metadata);
-        console.log(`📝 Indexed: ${filename} -> ${metadata.title}`);
+        console.log(`📝 Indexed: ${filename} -> ${metadata.title} (${metadata.readingTime})`);
         
       } catch (error) {
         console.error(`Error processing ${filename}:`, error.message);

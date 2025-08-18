@@ -32,6 +32,7 @@ class Blog {
     return window.location.pathname.includes('post.html');
   }
 
+
   // Blog Index Page
   async loadBlog() {
     try {
@@ -39,6 +40,8 @@ class Blog {
       if (!response.ok) throw new Error('Posts index not found');
       
       const postsIndex = await response.json();
+      
+      // Reading time is now pre-calculated in posts-index.json
       this.posts = postsIndex.sort((a, b) => new Date(b.date) - new Date(a.date));
       this.filteredPosts = [...this.posts];
       
@@ -94,7 +97,11 @@ class Blog {
           <h5 class="card-title">${post.title}</h5>
           <p class="card-text text-muted">${post.description}</p>
           <div class="d-flex justify-content-between align-items-center">
-            <small class="text-muted">${date}</small>
+            <div class="text-muted">
+              <small>${date}</small>
+              <span class="mx-1">•</span>
+              <small>${post.readingTime || '~ min read'}</small>
+            </div>
             <a href="post.html?post=${post.filename}" class="btn btn-outline-primary btn-sm">Read More</a>
           </div>
         </div>
@@ -173,9 +180,37 @@ class Blog {
     const doc = parser.parseFromString(htmlContent, 'text/html');
     const content = doc.querySelector('#content, .content')?.innerHTML || doc.body.innerHTML;
 
-    this.elements.postContainer.innerHTML = content;
+    // Use pre-calculated reading time from metadata
+    const readingTime = postMeta.readingTime || '~ min read';
+
+    // Create post header with metadata
+    const date = new Date(postMeta.date).toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    const tags = postMeta.tags.map(tag => `<span class="badge bg-secondary me-1">${tag}</span>`).join('');
+
+    const postHeader = `
+      <div class="mb-4 pb-3 border-bottom">
+        <div class="mb-2">${tags}</div>
+        <div class="text-muted">
+          <small>${date}</small>
+          <span class="mx-1">•</span>
+          <small>${readingTime}</small>
+        </div>
+      </div>
+    `;
+
+    this.elements.postContainer.innerHTML = postHeader + content;
     this.updatePageMeta(postMeta);
     this.highlightCode();
+    
+    // Re-render math if MathJax is available
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise([this.elements.postContainer]).catch((err) => {
+        console.warn('MathJax error:', err);
+      });
+    }
   }
 
   updatePageMeta(postMeta) {
@@ -213,14 +248,34 @@ class Blog {
         
         const srcClass = Array.from(pre.classList).find(cls => cls.startsWith('src-'));
         if (srcClass) {
-          const lang = srcClass.substring(4);
+          let lang = srcClass.substring(4);
+          // Map org-mode language names to Prism language names
+          const langMap = {
+            'sh': 'bash',
+            'shell': 'bash',
+            'emacs-lisp': 'lisp',
+            'js': 'javascript'
+          };
+          lang = langMap[lang] || lang;
           code.className = `language-${lang}`;
         }
       });
       
+      // Configure Prism plugins
+      if (Prism.plugins && Prism.plugins.NormalizeWhitespace) {
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+          'remove-trailing': true,
+          'remove-indent': true,
+          'left-trim': true,
+          'right-trim': true
+        });
+      }
+      
       Prism.highlightAll();
     }
   }
+
+
 
   showError(message) {
     const container = this.elements.postContainer || this.elements.postsContainer;

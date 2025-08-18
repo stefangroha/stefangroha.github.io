@@ -1,14 +1,12 @@
 [
   {
     "filename": "example-post.html",
-    "title": "Example Org-mode Post",
-    "slug": "example-org-mode-post",
-    "date": "2025-01-15",
-    "tags": [
-      "org-mode",
-      "blogging",
-      "example"
-    ],
-    "description": "This is an example of how your org-mode exported HTML posts will look. This content was exported from an org-mode file and is automatically integrated into your..."
+    "title": "Your Post Title",
+    "slug": "your-post-title",
+    "date": "2025-08-17",
+    "tags": [],
+    "description": "import torch def test_func(x: torch.Tensor) -&gt; int: return 1 2. Test table This is a table",
+    "readingTime": "1 min read",
+    "wordCount": 115
   }
 ]
