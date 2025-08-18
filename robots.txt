@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /blog/posts/
+Allow: /assets/
+
+# Disallow access to backend/config files only
+Disallow: /blog/config.js
+Disallow: /blog/generate-posts-index.js
+Disallow: /*.md$
+
+# Allow sitemap (add your sitemap URL when you create one)
+# Sitemap: https://yoursite.com/sitemap.xml
